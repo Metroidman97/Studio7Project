@@ -5,16 +5,22 @@ using UnityEngine.UI;
 
 public class ProtoCandle : MonoBehaviour
 {
+    // UI game objects
     public Button protoButton;
     public Slider protoCandleTimer;
+
+    // Burn speed for each individual candle
     public float burnSpeed = 0.1f;
 
+    // Script objects for the various managers
     public CandleManager candleManager;
     public TaskManager taskManager;
 
+    // Amount of meter restored when task is completed
     private float restoreAmount = 0.25f;
 
-    public enum CandleNum
+    // Enum for different candle ids
+    public enum CandleType
     {
         Front,  // Candle 0
         Back,   // Candle 1
@@ -22,12 +28,13 @@ public class ProtoCandle : MonoBehaviour
         Right   // Candle 3
     }
 
-    public CandleNum candleNum;
+    // Public enum variable for selecting candles
+    public CandleType candleType;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        candleManager.SetBurnSpeeds(burnSpeed, (int)candleType);    // Set the custom burn speed in the candle manager
     }
 
     // Update is called once per frame
@@ -38,16 +45,16 @@ public class ProtoCandle : MonoBehaviour
 
     void CandleBurn()
     {
-        protoCandleTimer.value = candleManager.candles[(int)candleNum].value;
+        protoCandleTimer.value = candleManager.candles[(int)candleType].value;      // Reduce the main candle meter
     }
 
     public void RestoreCandle()
     {
-        candleManager.RestoreCandle(restoreAmount, (int)candleNum);
+        candleManager.RestoreCandle(restoreAmount, (int)candleType);    // Restore some of the meter
     }
 
     public void SwitchCandle()
     {
-        taskManager.SwitchTask((int)candleNum);
+        taskManager.SwitchTask((int)candleType);    // Switch to the selected candle
     }
 }

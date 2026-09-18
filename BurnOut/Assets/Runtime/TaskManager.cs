@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    public GameObject[] tasks;
-
+    public GameObject[] tasks;      // Array of different tasks
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 1; i < tasks.Length; i++)
         {
-            tasks[i].gameObject.SetActive(false);
+            tasks[i].gameObject.SetActive(false);   // Set all but the first task as inactive
         }
     }
 
@@ -26,6 +25,7 @@ public class TaskManager : MonoBehaviour
     {
         for (int i = 0; i < tasks.Length; i++)
         {
+            // Set the selected task as active, and deactivate all the other tasks when one of the buttons are pressed
             if (i == taskID)
             {
                 tasks[i].gameObject.SetActive(true);
