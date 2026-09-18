@@ -7,7 +7,22 @@ public class ProtoCandle : MonoBehaviour
 {
     public Button protoButton;
     public Slider protoCandleTimer;
-    public float burnSpeed = 0.25f;
+    public float burnSpeed = 0.1f;
+
+    public CandleManager candleManager;
+    public TaskManager taskManager;
+
+    private float restoreAmount = 0.25f;
+
+    public enum CandleNum
+    {
+        Front,  // Candle 0
+        Back,   // Candle 1
+        Left,   // Candle 2
+        Right   // Candle 3
+    }
+
+    public CandleNum candleNum;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +38,16 @@ public class ProtoCandle : MonoBehaviour
 
     void CandleBurn()
     {
-        protoCandleTimer.value = Mathf.MoveTowards(protoCandleTimer.value, 0f, burnSpeed *  Time.deltaTime);
+        protoCandleTimer.value = candleManager.candles[(int)candleNum].value;
     }
 
     public void RestoreCandle()
     {
-        protoCandleTimer.value += 0.25f;
+        candleManager.RestoreCandle(restoreAmount, (int)candleNum);
+    }
+
+    public void SwitchCandle()
+    {
+        taskManager.SwitchTask((int)candleNum);
     }
 }
