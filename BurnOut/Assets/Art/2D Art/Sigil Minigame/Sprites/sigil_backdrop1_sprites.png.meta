@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_0
+      name: sigil_backdrop1_flame
       rect:
         serializedVersion: 2
         x: 0
@@ -144,7 +144,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_1
+      name: sigil_backdrop1_wind
       rect:
         serializedVersion: 2
         x: 600
@@ -165,7 +165,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_2
+      name: sigil_backdrop1_water
       rect:
         serializedVersion: 2
         x: 1200
@@ -186,7 +186,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_3
+      name: sigil_backdrop1_celestial
       rect:
         serializedVersion: 2
         x: 0
@@ -207,7 +207,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_4
+      name: sigil_backdrop1_earth
       rect:
         serializedVersion: 2
         x: 600
@@ -228,7 +228,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_5
+      name: sigil_backdrop1_electric
       rect:
         serializedVersion: 2
         x: 1200
@@ -249,7 +249,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_6
+      name: sigil_backdrop1_plasma
       rect:
         serializedVersion: 2
         x: 0
@@ -270,7 +270,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_7
+      name: sigil_backdrop1_ice
       rect:
         serializedVersion: 2
         x: 600
@@ -291,7 +291,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_8
+      name: sigil_backdrop1_plant
       rect:
         serializedVersion: 2
         x: 1200
@@ -312,7 +312,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_9
+      name: sigil_backdrop1_jewel
       rect:
         serializedVersion: 2
         x: 0
@@ -333,7 +333,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_10
+      name: sigil_backdrop1_blood
       rect:
         serializedVersion: 2
         x: 600
@@ -354,7 +354,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_11
+      name: sigil_backdrop1_light
       rect:
         serializedVersion: 2
         x: 1200
@@ -375,7 +375,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_12
+      name: sigil_backdrop1_dark
       rect:
         serializedVersion: 2
         x: 0
@@ -396,7 +396,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_13
+      name: sigil_backdrop1_stone
       rect:
         serializedVersion: 2
         x: 600
@@ -417,7 +417,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_backdrop1_sprites_14
+      name: sigil_backdrop1_witch
       rect:
         serializedVersion: 2
         x: 1200
@@ -438,7 +438,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -461,21 +461,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sigil_backdrop1_sprites_0: 1849477670
-      sigil_backdrop1_sprites_1: 1416103249
-      sigil_backdrop1_sprites_10: -1294961007
-      sigil_backdrop1_sprites_11: -761741892
-      sigil_backdrop1_sprites_12: -1996711785
-      sigil_backdrop1_sprites_13: 1322227499
-      sigil_backdrop1_sprites_14: -296992049
-      sigil_backdrop1_sprites_2: -747744827
-      sigil_backdrop1_sprites_3: -715330147
-      sigil_backdrop1_sprites_4: 254386309
-      sigil_backdrop1_sprites_5: -289657197
-      sigil_backdrop1_sprites_6: -2028448625
-      sigil_backdrop1_sprites_7: -58331542
-      sigil_backdrop1_sprites_8: 1176989836
-      sigil_backdrop1_sprites_9: -1446357812
+      sigil_backdrop1_blood: -1294961007
+      sigil_backdrop1_celestial: -715330147
+      sigil_backdrop1_dark: -1996711785
+      sigil_backdrop1_earth: 254386309
+      sigil_backdrop1_electric: -289657197
+      sigil_backdrop1_flame: 1849477670
+      sigil_backdrop1_ice: -58331542
+      sigil_backdrop1_jewel: -1446357812
+      sigil_backdrop1_light: -761741892
+      sigil_backdrop1_plant: 1176989836
+      sigil_backdrop1_plasma: -2028448625
+      sigil_backdrop1_stone: 1322227499
+      sigil_backdrop1_water: -747744827
+      sigil_backdrop1_wind: 1416103249
+      sigil_backdrop1_witch: -296992049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

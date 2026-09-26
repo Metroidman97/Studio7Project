@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sigil_dotted_sprites_0
+      name: sigil_dotted_flame
       rect:
         serializedVersion: 2
         x: 0
@@ -144,7 +144,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_1
+      name: sigil_dotted_wind
       rect:
         serializedVersion: 2
         x: 600
@@ -165,7 +165,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_2
+      name: sigil_dotted_water
       rect:
         serializedVersion: 2
         x: 1200
@@ -186,7 +186,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_3
+      name: sigil_dotted_celestial
       rect:
         serializedVersion: 2
         x: 0
@@ -207,7 +207,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,15 +220,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_4
+      name: sigil_dotted_earth
       rect:
         serializedVersion: 2
-        x: 600
+        x: 605
         y: 1800
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_5
+      name: sigil_dotted_electric
       rect:
         serializedVersion: 2
         x: 1200
@@ -249,7 +249,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_6
+      name: sigil_dotted_plasma
       rect:
         serializedVersion: 2
         x: 0
@@ -270,7 +270,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_7
+      name: sigil_dotted_ice
       rect:
         serializedVersion: 2
         x: 600
@@ -291,7 +291,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_8
+      name: sigil_dotted_plant
       rect:
         serializedVersion: 2
         x: 1200
@@ -312,7 +312,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_9
+      name: sigil_dotted_jewel
       rect:
         serializedVersion: 2
         x: 0
@@ -333,7 +333,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_10
+      name: sigil_dotted_blood
       rect:
         serializedVersion: 2
         x: 600
@@ -354,7 +354,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_11
+      name: sigil_dotted_light
       rect:
         serializedVersion: 2
         x: 1200
@@ -375,7 +375,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_12
+      name: sigil_dotted_dark
       rect:
         serializedVersion: 2
         x: 0
@@ -396,7 +396,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_13
+      name: sigil_dotted_stone
       rect:
         serializedVersion: 2
         x: 600
@@ -417,7 +417,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_dotted_sprites_14
+      name: sigil_dotted_witch
       rect:
         serializedVersion: 2
         x: 1200
@@ -438,7 +438,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -461,21 +461,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sigil_dotted_sprites_0: -1589977275
-      sigil_dotted_sprites_1: -572244477
-      sigil_dotted_sprites_10: 2109179328
-      sigil_dotted_sprites_11: -1358744266
-      sigil_dotted_sprites_12: 1409869786
-      sigil_dotted_sprites_13: 1524105395
-      sigil_dotted_sprites_14: 1831496968
-      sigil_dotted_sprites_2: 433435321
-      sigil_dotted_sprites_3: 1886337300
-      sigil_dotted_sprites_4: 233553143
-      sigil_dotted_sprites_5: -991505819
-      sigil_dotted_sprites_6: 1135734798
-      sigil_dotted_sprites_7: -359764969
-      sigil_dotted_sprites_8: -2075625143
-      sigil_dotted_sprites_9: -821543809
+      sigil_dotted_blood: 2109179328
+      sigil_dotted_celestial: 1886337300
+      sigil_dotted_dark: 1409869786
+      sigil_dotted_earth: 233553143
+      sigil_dotted_electric: -991505819
+      sigil_dotted_flame: -1589977275
+      sigil_dotted_ice: -359764969
+      sigil_dotted_jewel: -821543809
+      sigil_dotted_light: -1358744266
+      sigil_dotted_plant: -2075625143
+      sigil_dotted_plasma: 1135734798
+      sigil_dotted_stone: 1524105395
+      sigil_dotted_water: 433435321
+      sigil_dotted_wind: -572244477
+      sigil_dotted_witch: 1831496968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

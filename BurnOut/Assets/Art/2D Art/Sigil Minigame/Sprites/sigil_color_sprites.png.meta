@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sigil_color_sprites_0
+      name: sigil_color_flame
       rect:
         serializedVersion: 2
         x: 0
@@ -144,7 +144,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_1
+      name: sigil_color_wind
       rect:
         serializedVersion: 2
         x: 600
@@ -165,7 +165,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_2
+      name: sigil_color_water
       rect:
         serializedVersion: 2
         x: 1200
@@ -186,7 +186,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_3
+      name: sigil_color_celestial
       rect:
         serializedVersion: 2
         x: 0
@@ -207,7 +207,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_4
+      name: sigil_color_earth
       rect:
         serializedVersion: 2
         x: 600
@@ -228,7 +228,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_5
+      name: sigil_color_electric
       rect:
         serializedVersion: 2
         x: 1200
@@ -249,7 +249,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_6
+      name: sigil_color_plasma
       rect:
         serializedVersion: 2
         x: 0
@@ -270,7 +270,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_7
+      name: sigil_color_ice
       rect:
         serializedVersion: 2
         x: 600
@@ -291,7 +291,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_8
+      name: sigil_color_plant
       rect:
         serializedVersion: 2
         x: 1200
@@ -312,7 +312,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_9
+      name: sigil_color_jewel
       rect:
         serializedVersion: 2
         x: 0
@@ -333,7 +333,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_10
+      name: sigil_color_blood
       rect:
         serializedVersion: 2
         x: 600
@@ -354,7 +354,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_11
+      name: sigil_color_light
       rect:
         serializedVersion: 2
         x: 1200
@@ -375,7 +375,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_12
+      name: sigil_color_dark
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 5
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_13
+      name: sigil_color_stone
       rect:
         serializedVersion: 2
         x: 600
@@ -417,7 +417,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sigil_color_sprites_14
+      name: sigil_color_witch
       rect:
         serializedVersion: 2
         x: 1200
@@ -438,7 +438,7 @@ TextureImporter:
         width: 600
         height: 600
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -461,21 +461,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sigil_color_sprites_0: -287110887
-      sigil_color_sprites_1: 34998703
-      sigil_color_sprites_10: -859083606
-      sigil_color_sprites_11: -1042945366
-      sigil_color_sprites_12: -1656180410
-      sigil_color_sprites_13: 1822871429
-      sigil_color_sprites_14: -404024289
-      sigil_color_sprites_2: -1407001191
-      sigil_color_sprites_3: 1493310519
-      sigil_color_sprites_4: 1831708925
-      sigil_color_sprites_5: -391082065
-      sigil_color_sprites_6: -755141914
-      sigil_color_sprites_7: -545526745
-      sigil_color_sprites_8: -1542765437
-      sigil_color_sprites_9: 1845541905
+      sigil_color_blood: -859083606
+      sigil_color_celestial: 1493310519
+      sigil_color_dark: -1656180410
+      sigil_color_earth: 1831708925
+      sigil_color_electric: -391082065
+      sigil_color_flame: -287110887
+      sigil_color_ice: -545526745
+      sigil_color_jewel: 1845541905
+      sigil_color_light: -1042945366
+      sigil_color_plant: -1542765437
+      sigil_color_plasma: -755141914
+      sigil_color_stone: 1822871429
+      sigil_color_water: -1407001191
+      sigil_color_wind: 34998703
+      sigil_color_witch: -404024289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
