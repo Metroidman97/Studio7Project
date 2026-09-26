@@ -46,10 +46,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void MousePressed(InputAction.CallbackContext context)
     {
-        //Debug.Log("Grabbed");
         Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());
-        //Debug.Log(ray);
-
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
         if (hit.collider != null && (hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable")))
         {
