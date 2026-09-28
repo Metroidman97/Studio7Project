@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Check if the ingredient is in the cauldron
+    public bool isInCauldron = false;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Cauldron")
+        {
+            isInCauldron = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Cauldron")
+        {
+            isInCauldron = false;
+        }
     }
 }

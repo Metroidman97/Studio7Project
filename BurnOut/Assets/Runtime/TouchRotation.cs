@@ -6,19 +6,22 @@ using UnityEngine.InputSystem;
 
 public class TouchRotation : MonoBehaviour
 {
+    // Input action assets
     private PlayerInput playerInput;
-
     private InputAction touchRotate;
 
+    // Values for rotation movement
     [SerializeField]
     private float touchRotateSpeed = 10f;
     [SerializeField]
     private float angleOffset = -90f;
 
+    // Main camera
     private Camera mainCamera;
 
     private void Awake()
     {
+        // Get the camera and input actions
         mainCamera = Camera.main;
         playerInput = GetComponent<PlayerInput>();
         touchRotate = playerInput.actions.FindAction("TouchPress");
@@ -36,22 +39,12 @@ public class TouchRotation : MonoBehaviour
         touchRotate.Disable();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void TouchPressed(InputAction.CallbackContext context)
     {
-        Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+        Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
+
+        // If the ray hits something on the rotatable layer, run the code
         if (hit.collider != null &&  hit.collider.gameObject.layer == LayerMask.NameToLayer("Rotatable"))
         {
             StartCoroutine(RotateUpdate(hit.collider.gameObject));
@@ -60,6 +53,7 @@ public class TouchRotation : MonoBehaviour
 
     private IEnumerator RotateUpdate(GameObject clickedObject)
     {
+        // While the player is touching the screen
         while (touchRotate.ReadValue<float>() != 0)
         {
             Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());
