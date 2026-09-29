@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,7 +21,12 @@ public class Task0Manager : MonoBehaviour
     private string[] ingredientNames = new string[8];
 
     // List of needed ingredients
-    private List<Ingredient> neededIngredients = new List<Ingredient>();
+    private List<string> neededIngredients = new List<string>();
+
+    private RecipeLibrary recipeLibrary;
+
+    private GameManager gameManager;
+    private int diffRating;
 
     private void Awake()
     {
@@ -31,6 +37,12 @@ public class Task0Manager : MonoBehaviour
         }
 
         neededIngredients.Clear();
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        diffRating = (int)gameManager.difficulty;
+        recipeLibrary = GetComponent<RecipeLibrary>();
+
+        SetList();
     }
 
     // Start is called before the first frame update
@@ -47,11 +59,13 @@ public class Task0Manager : MonoBehaviour
 
     public void ResetTask()
     {
-        // Reset all the ingredients to their start position
+        // Reset all the ingredients to their start positions
         for (int i = 0; i < ingredients.Length; i++)
         {
             ingredients[i].GetComponent<Ingredient>().ResetPosition();
         }
+
+        SetList();
     }
 
     public void CheckIngredient(string ingredientName)
@@ -61,7 +75,21 @@ public class Task0Manager : MonoBehaviour
 
     private void SetList()
     {
-        // Randomly take 4 ingredients and put them in the needed ingredient list
+        neededIngredients.Clear();
+
+        neededIngredients = recipeLibrary.GetRecipe(diffRating).ToList();
+
+        if (neededIngredients == null)
+            return;
+
+        string listText = "Need:";
+
+        for (int i = 0; i < neededIngredients.Count; i++)
+        {
+            listText += "\n" + neededIngredients[i];
+        }
+
+        ingredientList.text = listText;
     }
 
     public void SwitchToTask()
@@ -74,7 +102,7 @@ public class Task0Manager : MonoBehaviour
         taskUI.SetActive(false);
     }
 
-    public void MixPostion()
+    public void MixPotion()
     {
 
     }
