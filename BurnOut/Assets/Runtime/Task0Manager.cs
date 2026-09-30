@@ -132,9 +132,16 @@ public class Task0Manager : MonoBehaviour, ITask
 
     public void MixPotion()
     {
-        // Add a coroutine here to wait a certain amount of time
+       StartCoroutine(PotionMixWait());
+       mixButton.SetActive(false);
+    }
+
+    private IEnumerator PotionMixWait()
+    {
+        // Wait a few seconds for the potion to finish mixing (should be made longer)
+        float waitTime = 3f;
+        yield return new WaitForSeconds(waitTime);
         finishButton.SetActive(true);
-        mixButton.SetActive(false);
     }
 
     public void FinishTask()
