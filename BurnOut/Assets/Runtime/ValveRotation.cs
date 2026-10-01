@@ -8,11 +8,16 @@ public class ValveRotation : MonoBehaviour
     private float previousZangle;
 
     // The total amount of degrees rotated
-    private float accumulatedDegrees = 0f;
+    public float accumulatedDegrees = 0f;
 
     // Total number of rotations
     public int rotations = 0;
 
+    // Task manager script
+    public Task3Manager task;
+
+    // Check if the valve has reached the end of its rotation
+    private bool hasReachedEnd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +54,12 @@ public class ValveRotation : MonoBehaviour
             if (rotations >= 3)
             {
                 transform.rotation = Quaternion.identity;
-                Debug.Log("Jammed");
+                if (!hasReachedEnd)
+                {
+                    // Make it so the coroutine only triggers once
+                    task.StartWater();
+                    hasReachedEnd = true;
+                }
             }
             else
             {
@@ -57,12 +67,11 @@ public class ValveRotation : MonoBehaviour
                 rotations++;
             } 
         }
-        else if (accumulatedDegrees <= -360f)
+        else if (accumulatedDegrees <= 0f)
         {
             if (rotations <= 0)
             {
                 transform.rotation = Quaternion.identity;
-                Debug.Log("Jammed");
             }
             else
             {
@@ -72,5 +81,12 @@ public class ValveRotation : MonoBehaviour
         }
 
         previousZangle = currentZangle;
+    }
+
+    public void ResetRotations()
+    {
+        rotations = 0;
+        accumulatedDegrees = 0f;
+        hasReachedEnd = false;
     }
 }
