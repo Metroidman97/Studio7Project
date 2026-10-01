@@ -10,33 +10,43 @@ public class CameraMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.position = cameraPositions[0].position;    // Set the camera's starting position to the first task
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SwitchTask(0);    // Set the camera's starting position to the first task
     }
 
     // Look for a way to clean this up
     public void SwitchToTask0()
     {
-        gameObject.transform.position = cameraPositions[0].position;
+        SwitchTask(0);
     }
 
     public void SwitchToTask1()
     {
-        gameObject.transform.position = cameraPositions[1].position;
+        SwitchTask(1);
     }
 
     public void SwitchToTask2()
     {
-        gameObject.transform.position = cameraPositions[2].position;
+        SwitchTask(2);
     }
 
     public void SwitchToTask3()
     {
-        gameObject.transform.position = cameraPositions[3].position;
+        SwitchTask(3);
+    }
+
+    private void SwitchTask(int taskID)
+    {
+        for (int i = 0; i < cameraPositions.Length; i++)
+        {
+            if (i == taskID)
+            {
+                gameObject.transform.position = cameraPositions[i].position;
+                cameraPositions[i].GetComponentInParent<ITask>().SwitchToTask();
+            }
+            else
+            {
+                cameraPositions[i].GetComponentInParent<ITask>().SwitchFromTask();
+            }
+        }
     }
 }
