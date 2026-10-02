@@ -42,6 +42,11 @@ public class Candle : MonoBehaviour
         {
             RestoreCandle();
         }
+
+        if (candleMeter.fillAmount == 0f)
+        {
+            gameManager.LevelLose();
+        }
     }
 
     void BurnCandle()
