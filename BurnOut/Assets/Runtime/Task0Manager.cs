@@ -48,6 +48,12 @@ public class Task0Manager : MonoBehaviour, ITask
         // Set the mix and finish buttons as inactive
         mixButton.SetActive(false);
         finishButton.SetActive(false);
+
+        // Set everything to default layer
+        for (int i = 0; i < ingredients.Length; i++)
+        {
+            ingredients[i].layer = LayerMask.NameToLayer("Default");
+        }
     }
 
     public void ResetTask()
@@ -56,6 +62,7 @@ public class Task0Manager : MonoBehaviour, ITask
         for (int i = 0; i < ingredients.Length; i++)
         {
             ingredients[i].GetComponent<Ingredient>().ResetPosition();
+            ingredients[i].layer = LayerMask.NameToLayer("Default");
         }
 
         // Reset the correct ingredients counter
@@ -160,5 +167,9 @@ public class Task0Manager : MonoBehaviour, ITask
     public void StartTask()
     {
         SetList();
+        for (int i = 0; i < ingredients.Length; i++)
+        {
+            ingredients[i].layer = LayerMask.NameToLayer("Draggable");
+        }
     }
 }

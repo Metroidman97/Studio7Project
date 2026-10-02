@@ -43,7 +43,8 @@ public class DragAndDrop : MonoBehaviour
 
     private void MousePressed(InputAction.CallbackContext context)
     {
-        Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());                      // Same as below but for mouse input, figure out a way to make this work for both simultaneously
+        //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
 
         // If the ray hits something on the draggable layer, run the code
@@ -61,7 +62,8 @@ public class DragAndDrop : MonoBehaviour
         // While the player is touching the screen
         while (touchDrag.ReadValue<float>() != 0)
         {
-            Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create another ray where the player touches the screen
+            //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create another ray where the player touches the screen
+            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (rb != null)     // If the object has a rigidbody
             {
                 // Move the object by changing its velocity
