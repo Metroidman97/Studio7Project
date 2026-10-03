@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject winScreen;
+
+    public GameObject loseScreen;
+
     // Enum for difficulty states
     public enum Difficulty
     {
@@ -12,6 +17,9 @@ public class GameManager : MonoBehaviour
         Hard,
         Expert
     }
+
+    // Counter for the current night. Will be used to select difficulty.
+    public int nightCounter;
 
     // Public enum difficulty variable
     public Difficulty difficulty;
@@ -22,10 +30,20 @@ public class GameManager : MonoBehaviour
     // Difficulty based restore speed modifier
     public float restoreSpeedModifier = 1f;
 
+    public float nightTimerModifier = 1f;
+
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         SetMultiplier();
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -55,5 +73,23 @@ public class GameManager : MonoBehaviour
                 restoreSpeedModifier = 0.5f;
                 break;
         }
+    }
+
+    public void LevelWin()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void LevelLose()
+    {
+        loseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

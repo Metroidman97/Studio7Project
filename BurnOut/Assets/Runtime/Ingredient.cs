@@ -17,7 +17,7 @@ public class Ingredient : MonoBehaviour
     {
         taskManager = GameObject.Find("Task0").GetComponent<Task0Manager>();    // Get the taskmanager script
         startPosition = transform.position;                                     // Record the starting position
-        gameObject.layer = LayerMask.NameToLayer("Draggable");                  // Set the layer to draggable, for saftey
+        gameObject.layer = LayerMask.NameToLayer("Default");                    // Set the layer to default so they can't be dragged
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,17 +35,16 @@ public class Ingredient : MonoBehaviour
         if (collision.tag == "Cauldron")
         {
             isInCauldron = false;
-            gameObject.layer = LayerMask.NameToLayer("Draggable");  // Set the object back to draggable
+            //gameObject.layer = LayerMask.NameToLayer("Draggable");  // Set the object back to draggable
         }
     }
 
     public void ResetPosition()
     {
-        // Reset the object's position and velocity and make it draggable again
+        // Reset the object's position and velocity and make it undraggable again
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
-        gameObject.layer = LayerMask.NameToLayer("Draggable");
     }
 }
