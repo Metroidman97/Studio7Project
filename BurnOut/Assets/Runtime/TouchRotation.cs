@@ -41,7 +41,8 @@ public class TouchRotation : MonoBehaviour
 
     private void TouchPressed(InputAction.CallbackContext context)
     {
-        Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
 
         // If the ray hits something on the rotatable layer, run the code
@@ -56,8 +57,10 @@ public class TouchRotation : MonoBehaviour
         // While the player is touching the screen
         while (touchRotate.ReadValue<float>() != 0)
         {
-            Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());
-            Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Touchscreen.current.primaryTouch.position.ReadValue().x, Touchscreen.current.primaryTouch.position.ReadValue().y, Mathf.Abs(mainCamera.transform.position.z)));
+            //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());
+            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            //Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Touchscreen.current.primaryTouch.position.ReadValue().x, Touchscreen.current.primaryTouch.position.ReadValue().y, Mathf.Abs(mainCamera.transform.position.z)));
+            Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, Mathf.Abs(mainCamera.transform.position.z)));
             worldTouchPosition.z = 0f;
 
             Vector2 direction = (worldTouchPosition - clickedObject.transform.position).normalized;

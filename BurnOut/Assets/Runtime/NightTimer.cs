@@ -8,7 +8,7 @@ public class NightTimer : MonoBehaviour
 
     public Slider nightTimer;
 
-    public float nightTimeSpeed = 0.1f;
+    public float nightTimeSpeed = 0.01f;
 
     private GameManager gameManager;
 
