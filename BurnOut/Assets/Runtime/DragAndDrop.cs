@@ -18,7 +18,7 @@ public class DragAndDrop : MonoBehaviour
 
     private Camera mainCamera;                                                  // Main camera
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();   // Wait for seconds precall, so as to not create it constantly
-    private Vector3 velocity = Vector3.zero;                                    // Initilize velocity vector as zero
+    private Vector2 velocity = Vector2.zero;                                    // Initilize velocity vector as zero
 
     private void Awake()
     {
@@ -32,12 +32,14 @@ public class DragAndDrop : MonoBehaviour
     {
         touchDrag.Enable();
         touchDrag.performed += MousePressed;
+        touchDrag.canceled += MouseReleased;
         
     }
 
     private void OnDisable()
     {
         touchDrag.performed -= MousePressed;
+        touchDrag.canceled -= MouseReleased;
         touchDrag.Disable();
     }
 
@@ -74,8 +76,24 @@ public class DragAndDrop : MonoBehaviour
             else                // If the object doesn't have a rigidbody
             {
                 // Update the object's position based on where the touch is happening
-                clickedObject.transform.position = Vector3.SmoothDamp(clickedObject.transform.position, ray.GetPoint(initialDistance), ref velocity, touchDragSpeed);
+                clickedObject.transform.position = Vector2.SmoothDamp(clickedObject.transform.position, ray.GetPoint(initialDistance), ref velocity, touchDragSpeed);
                 yield return null;
+            }
+        }
+    }
+
+    private void MouseReleased(InputAction.CallbackContext context)
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());                      // Same as below but for mouse input, figure out a way to make this work for both simultaneously
+        //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
+
+        if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable"))
+        {
+            hit.collider.gameObject.TryGetComponent(out Bone bone);
+            if (bone != null)
+            {
+                bone.SnapToNearestPoint();
             }
         }
     }
