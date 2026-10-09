@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.60784316, g: 0.60784316, b: 0.60784316, a: 1}
+  m_AmbientSkyColor: {r: 0.5803922, g: 0.5803922, b: 0.5803922, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -12614,6 +12614,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 2052450364}
+  candles:
+  - {fileID: 2087088838}
+  - {fileID: 1600362894}
+  - {fileID: 2089981884}
+  - {fileID: 1827068660}
 --- !u!4 &1831901888
 Transform:
   m_ObjectHideFlags: 0
