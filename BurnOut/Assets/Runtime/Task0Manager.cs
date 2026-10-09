@@ -14,6 +14,11 @@ public class Task0Manager : MonoBehaviour, ITask
     public TextMeshProUGUI ingredientList;
     public GameObject taskUI;
 
+    // Public Audio
+    public AudioSource keyTaskAudio;
+    public AudioClip successfulBrew;
+    public AudioClip failedBrew;
+
     // Candle meter object
     public Candle candle;
 
@@ -92,6 +97,7 @@ public class Task0Manager : MonoBehaviour, ITask
         else                // If no match is found, return the ingredient to the cauldron
         {
             ingredient.GetComponent<Ingredient>().ResetPosition();
+            //keyTaskAudio.PlayOneShot(failedBrew); JACOB: plays "PotionFailSound" if ingredient is incorrect
         }
 
         if (correctIngredients == (diffRating + 1))   // Once all ingredients are added, make the mix button visible
@@ -130,17 +136,20 @@ public class Task0Manager : MonoBehaviour, ITask
     public void SwitchToTask()
     {
         taskUI.SetActive(true);
+        //keyTaskAudio.Play(); JACOB: Plays background bubbling which is sloted into audio source. Not "PlayOneShot" in order to enable proper looping.
     }
 
     public void SwitchFromTask()
     {
         taskUI.SetActive(false);
+        //keyTaskAudio.Pause(); JACOB: Plays background bubbling which is sloted into audio source. Not "PlayOneShot" in order to enable proper looping.
     }
 
     public void MixPotion()
     {
        StartCoroutine(PotionMixWait());
        mixButton.SetActive(false);
+       //keyTaskAudio.PlayOneShot(successfulBrew); JACOB: plays "PototionSucessSound" once potion mixing begins
     }
 
     private IEnumerator PotionMixWait()

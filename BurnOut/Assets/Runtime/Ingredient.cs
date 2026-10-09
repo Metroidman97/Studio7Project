@@ -13,6 +13,8 @@ public class Ingredient : MonoBehaviour
     // Starting position of the ingredient in the scene
     private Vector2 startPosition;
 
+    public AudioSource droppedInAudio;
+
     private void Awake()
     {
         taskManager = GameObject.Find("Task0").GetComponent<Task0Manager>();    // Get the taskmanager script
@@ -24,6 +26,7 @@ public class Ingredient : MonoBehaviour
     {
         if (collision.tag == "Cauldron")
         {
+            //droppedInAudio.Play(); // JACOB: Plays audio of ingredent falling into pot
             isInCauldron = true;
             taskManager.CheckIngredient(gameObject);
             gameObject.layer = LayerMask.NameToLayer("Default");    // Set the layer to defualt so the item can't be pulled out of the cauldron
