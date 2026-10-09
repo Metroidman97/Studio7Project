@@ -9,13 +9,14 @@ public class LightManager : MonoBehaviour
     public Light directionalLight;
 
     private float startIntensity = 1.0f;
-    private float currentIntensity = 0.5f;
+    private float currentIntensity = 1.0f;
 
     public Candle[] candles;
 
     // Start is called before the first frame update
     void Start()
     {
+        directionalLight.intensity = startIntensity;
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class LightManager : MonoBehaviour
             if(candles[i].candleMeter.fillAmount < lowestIntensity)
             {
                 currentIntensity = candles[i].candleMeter.fillAmount;
+                lowestIntensity = currentIntensity;
             } 
         }
         return currentIntensity;
