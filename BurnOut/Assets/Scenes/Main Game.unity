@@ -6717,6 +6717,42 @@ PrefabInstance:
       propertyPath: taskObject
       value: 
       objectReference: {fileID: 1041611579}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b0ff611ed3c8dbf46b422f3881e39c74, type: 3}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994992733061199194, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8036053710048084465, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Name
       value: Task2CandleMeter
@@ -6726,16 +6762,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab034329937a5c45bdff44f2dca5d7c, type: 3}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.b
-      value: 0.4156863
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.g
-      value: 0.8980393
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.r
-      value: 0.9333334
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10618,6 +10658,42 @@ PrefabInstance:
       propertyPath: taskObject
       value: 
       objectReference: {fileID: 57537698}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c26880ee6b82ed7459daa4883bcd39b9, type: 3}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994992733061199194, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8036053710048084465, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Name
       value: Task1CandleMeter
@@ -10627,16 +10703,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab034329937a5c45bdff44f2dca5d7c, type: 3}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.b
-      value: 0.57254905
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.g
-      value: 0.8980393
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.r
-      value: 0.47058827
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12436,6 +12516,42 @@ PrefabInstance:
       propertyPath: taskObject
       value: 
       objectReference: {fileID: 260389218}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2477bb5dacc42194d8840d3b99042bb8, type: 3}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994992733061199194, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8036053710048084465, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Name
       value: Task3CandleMeter
@@ -12445,16 +12561,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab034329937a5c45bdff44f2dca5d7c, type: 3}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.b
-      value: 0.41176474
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.g
-      value: 0.41176474
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Color.r
-      value: 0.9607844
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13995,9 +14115,65 @@ PrefabInstance:
       propertyPath: taskObject
       value: 
       objectReference: {fileID: 246475262}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679769851786787595, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64620e9e83fb7554888a54df5b3f31a6, type: 3}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433920225410893146, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994992733061199194, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8036053710048084465, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_Name
       value: Task0CandleMeter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bab034329937a5c45bdff44f2dca5d7c, type: 3}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8992385666843199815, guid: 777d3d5b4ecbfc84286e01921a7b1f06, type: 3}
       propertyPath: m_FillAmount
