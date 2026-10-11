@@ -119,7 +119,6 @@ public class Task2Manager : MonoBehaviour, ITask
             {
                 correctBones++;
             }
-            Debug.Log(correctBones);
         }
 
         if (correctBones == 4)
