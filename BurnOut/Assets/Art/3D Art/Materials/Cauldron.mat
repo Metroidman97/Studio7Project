@@ -12,10 +12,12 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _METALLICGLOSSMAP
   - _NORMALMAP
+<<<<<<< Updated upstream
   - _PARALLAXMAP
+=======
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+>>>>>>> Stashed changes
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -28,7 +30,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 6664ab0ddc8a46f4fbdc5632badf79c2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6eb8dda13a8e66444b50a144e723c4af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,7 +38,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
-        m_Texture: {fileID: 2800000, guid: e2d2a2cdb1aa4e847adfdef6c30a7afe, type: 3}
+<<<<<<< Updated upstream
+        m_Texture: {fileID: 0}
+=======
+        m_Texture: {fileID: 2800000, guid: ec278a9f89398264593302b41bcb973a, type: 3}
+>>>>>>> Stashed changes
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
@@ -44,11 +50,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 6bb2d44dc92bdf24ab5bc21dec4ac5aa, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6bb2d44dc92bdf24ab5bc21dec4ac5aa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 480acf6abf1a6c4479c3ac8863c2276d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -69,19 +75,19 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0.5
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.022
-    - _SmoothnessTextureChannel: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
