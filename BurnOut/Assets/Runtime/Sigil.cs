@@ -18,10 +18,7 @@ public class Sigil : MonoBehaviour
     void Start()
     {
         // Set all but the first point as inactive
-        for (int i = 1; i < sigilPoints.Length; i++)
-        {
-            sigilPoints[i].SetActive(false);
-        }
+        ResetPoints();
     }
 
     // Update is called once per frame
@@ -32,6 +29,7 @@ public class Sigil : MonoBehaviour
 
     public void NextSigilPoint(int id)
     {
+        // If the tapped point is not the last point, move to the next point, else finish the task
         if (id < sigilPoints.Length - 1)
         {
             sigilPoints[id].SetActive(false);
@@ -40,6 +38,16 @@ public class Sigil : MonoBehaviour
         else if (id == sigilPoints.Length - 1)
         {
             task.FinishTask();
+        }
+    }
+
+    public void ResetPoints()
+    {
+        // Set the first point active and deactivate the rest
+        sigilPoints[0].SetActive(true);
+        for (int i = 1; i < sigilPoints.Length; i++)
+        {
+            sigilPoints[i].SetActive(false);
         }
     }
 }

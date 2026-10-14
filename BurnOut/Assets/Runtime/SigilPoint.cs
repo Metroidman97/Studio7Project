@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SigilPoint : MonoBehaviour
 {
+    // ID number for the point, to determine the order they are pressed
     public int id = 0;
 
     private Sigil sigil;
@@ -16,6 +17,5 @@ public class SigilPoint : MonoBehaviour
     public void PointTapped()
     {
         sigil.NextSigilPoint(id);
-        //Debug.Log("Point Tapped");
     }
 }
