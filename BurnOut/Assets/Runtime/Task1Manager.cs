@@ -18,6 +18,12 @@ public class Task1Manager : MonoBehaviour, ITask
     private GameManager gameManager;
     private int diffRating;
 
+    //Public Facing audio
+    public AudioClip sigilSpawn;
+    public AudioClip sigilSucess;
+    public AudioSource keyTaskAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +65,8 @@ public class Task1Manager : MonoBehaviour, ITask
                 hardSigils[index].GetComponent<Sigil>().ResetPoints();
                 break;
         }
+        keyTaskAudio.pitch = 0.82f;
+        keyTaskAudio.PlayOneShot(sigilSpawn); //JACOB: Plays 'sigil sucess' upon task being completed properly
     }
 
     public void SwitchToTask()
@@ -79,6 +87,8 @@ public class Task1Manager : MonoBehaviour, ITask
             mediumSigils[i].SetActive(false);
             hardSigils[i].SetActive(false);
         }
+        keyTaskAudio.pitch = 1.1f;
+        keyTaskAudio.PlayOneShot(sigilSucess); //JACOB: Plays 'sigil sucess' upon task being completed properly
         candle.PutOutOfDanger();
     }
 }

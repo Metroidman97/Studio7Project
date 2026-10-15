@@ -55,7 +55,7 @@ public class DragAndDrop : MonoBehaviour
         {
             StartCoroutine(DragUpdate(hit.collider.gameObject));
             
-            //JACOB START
+            //JACOB START: Checks if collider's gameobject contains "Ingrient". If yes, calls the ingredient forward.
             if(hit.collider.gameObject.TryGetComponent(out Ingredient ingredient))
             {
                 print("Found ingreident script");
@@ -105,7 +105,7 @@ public class DragAndDrop : MonoBehaviour
                 bone.SnapToNearestPoint();
             }
 
-            //JACOB START
+            //JACOB START: Checks if release object is Ingredient. If so, calls "RevertBack"
             hit.collider.gameObject.TryGetComponent(out Ingredient ingredient);
             if (ingredient != null)
             {

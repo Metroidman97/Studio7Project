@@ -58,18 +58,19 @@ public class Ingredient : MonoBehaviour
         ;
     }
 
-    //JACOB START
+    //JACOB START: Sets "Shelf" layer as exluded for 2D collider. Moves ingredient closer to camera, over the shelf models.
     public void BringForward()
     {
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Shelf");
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z -1.2f);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2f);
     }
-    
+
+    //Dropping an ingredient clears the excluded layers before re-endabling "draggable" mask. This is to avoid ingredients colliding into each other.
     public void RevertBack()
     {
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Nothing");
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Draggable");
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.2f);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2f);
         print("Revert Back Called");
     }
     //JACOB END
