@@ -8,10 +8,12 @@ public class Sigil : MonoBehaviour
 
     private Task1Manager task;
 
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         task = GameObject.Find("Task1").GetComponent<Task1Manager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -34,6 +36,9 @@ public class Sigil : MonoBehaviour
         {
             sigilPoints[id].SetActive(false);
             sigilPoints[id + 1].SetActive(true);
+
+            // Make the color fade in with each point tapped
+            SetSpriteAlpha(((float)id + 1f) / (float)sigilPoints.Length);
         }
         else if (id == sigilPoints.Length - 1)
         {
@@ -49,5 +54,17 @@ public class Sigil : MonoBehaviour
         {
             sigilPoints[i].SetActive(false);
         }
+
+        // Make the color of the sigil completely transparent
+        SetSpriteAlpha(0f);
+    }
+
+    private void SetSpriteAlpha(float alphaValue)
+    {
+        Color tempColor = spriteRenderer.color;
+
+        tempColor.a = alphaValue;
+
+        spriteRenderer.color = tempColor;
     }
 }

@@ -163,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -208,6 +208,10 @@ PrefabInstance:
     - target: {fileID: 311160204426077376, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_Name
       value: SigilTouchPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 653494566362585998, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5222663216185635397, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SigilTouchPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 653494566362585998, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5222663216185635397, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.476
@@ -351,6 +359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SigilTouchPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 653494566362585998, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5222663216185635397, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -417,6 +429,10 @@ PrefabInstance:
     - target: {fileID: 311160204426077376, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_Name
       value: SigilTouchPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 653494566362585998, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5222663216185635397, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,6 +504,10 @@ PrefabInstance:
     - target: {fileID: 311160204426077376, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_Name
       value: SigilTouchPoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 653494566362585998, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5222663216185635397, guid: 0ed60f80de22f2546b9ccd5e2aebe69b, type: 3}
       propertyPath: m_LocalPosition.x
