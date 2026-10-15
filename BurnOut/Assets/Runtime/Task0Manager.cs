@@ -142,7 +142,7 @@ public class Task0Manager : MonoBehaviour, ITask
     public void SwitchFromTask()
     {
         taskUI.SetActive(false);
-        keyTaskAudio.Pause(); //JACOB: Plays background bubbling which is sloted into audio source. Not "PlayOneShot" in order to enable proper looping.
+        keyTaskAudio.Pause(); //JACOB: Stops background bubbling which is sloted into audio source. Not "PlayOneShot" in order to enable proper looping.
     }
 
     public void MixPotion()
