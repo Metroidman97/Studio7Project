@@ -2,55 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecipeLibrary : MonoBehaviour
+public class RecipeLibrary
 {
-    /*
-    private string[] easyPotion0 = { "Rosemary" };
-    private string[] easyPotion1 = { "Jar Of Blood" };
-    private string[] easyPotion2 = { "Lavender" };
+    private int diffRating;
 
-    private string[] mediumPotion0 = { "Salt", "Crystals" };
-    private string[] mediumPostion1 = { "Bay Leaves", "Rose Petals" };
-    private string[] mediumPostion2 = { "Cinnamon Stick", "Salt" };
+    //private string[] ingredients = new string[] {"Rosemary", "Jar Of Blood", "Salt", "Rose Petals", "Bay Leaves", "Crystals", "Cinnamon Stick", "Lavender" };
 
-    private string[] hardPotion0 = { "Rosemary", "Crystals", "Lavender" };
-    private string[] hardPotion1 = { "Jar Of Blood", "Bay Leaves", "Salt" };
-    private string[] hardPotion2 = { "Rose Petals", "Cinnamon Stick", "Lavender" };
-
-    private string[] expertPotion0 = { "Crystals", "Bay Leaves", "Rose Petals", "Lavender" };
-    private string[] expertPotion1 = { "Cinnamon Stick", "Jar Of Blood", "Rosemary", "Salt" };
-    private string[] expertPotion2 = { "Bay Leaves", "Salt", "Crystals", "Jar Of Blood" };
-    */
-
-    private string[][] easyPotions = new string[3][]
+    private string[][] easyPotions = new string[4][]
     {
-        new string[] { "Rosemary" },
-        new string[] { "Jar Of Blood" },
-        new string[] { "Lavender" }
+        new string[] { "Crystals", "Rose Petals" },
+        new string[] { "Bay Leaves", "Rosemary" },
+        new string[] { "Cinnamon Stick", "Salt" },
+        new string[] { "Jar Of Blood", "Lavender" }
     };
 
-    private string[][] mediumPotions = new string[3][]
+    private string[][] mediumPotions = new string[6][]
     {
-        new string[] { "Salt", "Crystals" },
-        new string[] { "Bay Leaves", "Rose Petals" },
-        new string[] { "Cinnamon Stick", "Salt" }
+        new string[] { "Rosemary", "Salt", "Jar Of Blood" },
+        new string[] { "Lavender", "Rose Petals", "Cinnamon Stick" },
+        new string[] { "Rosemary", "Crystals", "Jar Of Blood" },
+        new string[] { "Cinnamon Stick", "Crystals", "Rose Petals" },
+        new string[] { "Cinnamon Stick", "Bay Leaves", "Rosemary" },
+        new string[] { "Lavender", "Rosemary", "Salt" }
     };
 
-    private string[][] hardPotions = new string[3][]
+    private string[][] hardPotions = new string[4][]
     {
-        new string[] { "Rosemary", "Crystals", "Lavender" },
-        new string[] { "Jar Of Blood", "Bay Leaves", "Salt" },
-        new string[] { "Rose Petals", "Cinnamon Stick", "Lavender" }
+        new string[] { "Crystals", "Jar Of Blood", "Lavender", "Salt" },
+        new string[] { "Salt", "Rose Petals", "Bay Leaves", "Rosemary" },
+        new string[] { "Bay Leaves", "Cinnamon Stick", "Crystals", "Rose Petals" },
+        new string[] { "Bay Leaves", "Lavender", "Salt", "Jar Of Blood" }
     };
 
-    private string[][] expertPotion = new string[3][]
+    public RecipeLibrary(int rating)
     {
-        new string[] { "Crystals", "Bay Leaves", "Rose Petals", "Lavender" },
-        new string[] { "Cinnamon Stick", "Jar Of Blood", "Rosemary", "Salt" },
-        new string[] { "Bay Leaves", "Salt", "Crystals", "Jar Of Blood" }
-    };
+        diffRating = rating;
+    }
 
-    public string[] GetRecipe(int diffRating)
+    public string[] GetRecipe()
     {
         int index;
         switch(diffRating)
@@ -64,9 +53,6 @@ public class RecipeLibrary : MonoBehaviour
             case 2:
                 index = Random.Range(0, hardPotions.Length);
                 return hardPotions[index];
-            case 3:
-                index = Random.Range(0, expertPotion.Length);
-                return expertPotion[index];
             default:
                 return null;
         }
