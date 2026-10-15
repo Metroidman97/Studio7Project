@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,6 +54,14 @@ public class DragAndDrop : MonoBehaviour
         if (hit.collider != null && (hit.collider.gameObject.CompareTag("Draggable") || hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable")))
         {
             StartCoroutine(DragUpdate(hit.collider.gameObject));
+            
+            //JACOB START
+            if(hit.collider.gameObject.TryGetComponent(out Ingredient ingredient))
+            {
+                print("Found ingreident script");
+                ingredient.BringForward();
+            }
+            //JACOB END
         }
     }
 
@@ -95,6 +104,14 @@ public class DragAndDrop : MonoBehaviour
             {
                 bone.SnapToNearestPoint();
             }
+
+            //JACOB START
+            hit.collider.gameObject.TryGetComponent(out Ingredient ingredient);
+            if (ingredient != null)
+            {
+                ingredient.RevertBack();
+            }
+            //JACOB END
         }
     }
 }
