@@ -22,8 +22,10 @@ public class Ingredient : MonoBehaviour
         taskManager = GameObject.Find("Task0").GetComponent<Task0Manager>();    // Get the taskmanager script
         startPosition = transform.position;                                     // Record the starting position
         gameObject.layer = LayerMask.NameToLayer("Default");                    // Set the layer to default so they can't be dragged
-        //JACOB
+        
+        //JACOB START
         collisionOn2DPlane = gameObject.GetComponent<PolygonCollider2D>();
+        //JACOB END
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,14 +50,15 @@ public class Ingredient : MonoBehaviour
     public void ResetPosition()
     {
         // Reset the object's position and velocity and make it undraggable again
+        RevertBack();
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
-        RevertBack();
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        ;
     }
 
-    //JACOB
+    //JACOB START
     public void BringForward()
     {
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Shelf");
@@ -65,8 +68,9 @@ public class Ingredient : MonoBehaviour
     public void RevertBack()
     {
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Nothing");
+        collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Draggable");
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.2f);
         print("Revert Back Called");
     }
-    //JACOB
+    //JACOB END
 }
