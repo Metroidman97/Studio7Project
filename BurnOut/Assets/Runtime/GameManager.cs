@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
     {
         Easy,
         Medium,
-        Hard,
-        Expert
+        Hard
     }
 
     // Counter for the current night. Will be used to select difficulty.
@@ -67,10 +66,6 @@ public class GameManager : MonoBehaviour
             case Difficulty.Hard:
                 burnSpeedMultiplier = 1.5f;
                 restoreSpeedModifier = 1f;
-                break;
-            case Difficulty.Expert:
-                burnSpeedMultiplier = 2f;
-                restoreSpeedModifier = 0.5f;
                 break;
         }
     }

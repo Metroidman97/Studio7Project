@@ -48,7 +48,7 @@ public class Task0Manager : MonoBehaviour, ITask
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();   // Get the game manager script
         diffRating = (int)gameManager.difficulty;                                   // Get the index value of the difficulty setting
-        recipeLibrary = GetComponent<RecipeLibrary>();                              // Get the recipe library script
+        recipeLibrary = new RecipeLibrary(diffRating);                              // Get the recipe library script
         
         // Set the mix and finish buttons as inactive
         mixButton.SetActive(false);
@@ -100,7 +100,7 @@ public class Task0Manager : MonoBehaviour, ITask
             keyTaskAudio.PlayOneShot(failedBrew); //JACOB: plays "PotionFailSound" if ingredient is incorrect
         }
 
-        if (correctIngredients == (diffRating + 1))   // Once all ingredients are added, make the mix button visible
+        if (correctIngredients == (diffRating + 2))   // Once all ingredients are added, make the mix button visible
         {
             mixButton.SetActive(true);
         }
@@ -112,7 +112,7 @@ public class Task0Manager : MonoBehaviour, ITask
         neededIngredients.Clear();
 
         // Get a random list of ingredients from the recipe library, based on the difficulty
-        neededIngredients = recipeLibrary.GetRecipe(diffRating).ToList();
+        neededIngredients = recipeLibrary.GetRecipe().ToList();
 
         if (neededIngredients == null)
             return;
