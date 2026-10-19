@@ -14,6 +14,11 @@ public class Task0Manager : MonoBehaviour, ITask
     public TextMeshProUGUI ingredientList;
     public GameObject taskUI;
 
+    // Public Audio
+    public AudioSource keyTaskAudio;
+    public AudioClip successfulBrew;
+    public AudioClip failedBrew;
+
     // Candle meter object
     public Candle candle;
 
@@ -43,7 +48,7 @@ public class Task0Manager : MonoBehaviour, ITask
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();   // Get the game manager script
         diffRating = (int)gameManager.difficulty;                                   // Get the index value of the difficulty setting
-        recipeLibrary = GetComponent<RecipeLibrary>();                              // Get the recipe library script
+        recipeLibrary = new RecipeLibrary(diffRating);                              // Get the recipe library script
         
         // Set the mix and finish buttons as inactive
         mixButton.SetActive(false);
@@ -92,9 +97,10 @@ public class Task0Manager : MonoBehaviour, ITask
         else                // If no match is found, return the ingredient to the cauldron
         {
             ingredient.GetComponent<Ingredient>().ResetPosition();
+            keyTaskAudio.PlayOneShot(failedBrew); //JACOB: plays "PotionFailSound" if ingredient is incorrect
         }
 
-        if (correctIngredients == (diffRating + 1))   // Once all ingredients are added, make the mix button visible
+        if (correctIngredients == (diffRating + 2))   // Once all ingredients are added, make the mix button visible
         {
             mixButton.SetActive(true);
         }
@@ -106,7 +112,7 @@ public class Task0Manager : MonoBehaviour, ITask
         neededIngredients.Clear();
 
         // Get a random list of ingredients from the recipe library, based on the difficulty
-        neededIngredients = recipeLibrary.GetRecipe(diffRating).ToList();
+        neededIngredients = recipeLibrary.GetRecipe().ToList();
 
         if (neededIngredients == null)
             return;
@@ -130,17 +136,20 @@ public class Task0Manager : MonoBehaviour, ITask
     public void SwitchToTask()
     {
         taskUI.SetActive(true);
+        keyTaskAudio.Play(); //JACOB: Plays background bubbling which is sloted into audio source. Not "PlayOneShot" in order to enable proper looping.
     }
 
     public void SwitchFromTask()
     {
         taskUI.SetActive(false);
+        keyTaskAudio.Pause(); //JACOB: Stops background bubbling which is sloted into audio source. Not "PlayOneShot" in order to enable proper looping.
     }
 
     public void MixPotion()
     {
        StartCoroutine(PotionMixWait());
        mixButton.SetActive(false);
+       keyTaskAudio.PlayOneShot(successfulBrew); //JACOB: plays "PototionSucessSound" once potion mixing begins
     }
 
     private IEnumerator PotionMixWait()
