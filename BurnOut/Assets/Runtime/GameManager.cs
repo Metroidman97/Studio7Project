@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
 
     public float nightTimerModifier = 1f;
 
+    public bool debugMode = false;
+
+    public GameObject[] candleMeters;
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -43,12 +47,24 @@ public class GameManager : MonoBehaviour
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
 
+        // Hide the danger mode button for each candle when debug mode is off
+        if (!debugMode)
+        {
+            for (int i = 0; i < candleMeters.Length; i++)
+            {
+                candleMeters[i].GetComponent<Candle>().HideDebugButton();
+            }
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (debugMode)
+        {
+            // Code to make candles randomly enter danger mode here
+        }
     }
 
     private void SetMultiplier()
