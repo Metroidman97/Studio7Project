@@ -44,6 +44,11 @@ public class Candle : MonoBehaviour
         dangerButton.SetActive(false);
     }
 
+    public bool GetDangerStatus()
+    {
+        return inDanger;
+    }
+
     // Update is called once per frame
     void Update()
     {

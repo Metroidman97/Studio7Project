@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] candleMeters;
 
+    // How frequently candles get put in danger automatically
+    private float dangerFrequency;
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -54,6 +57,10 @@ public class GameManager : MonoBehaviour
             {
                 candleMeters[i].GetComponent<Candle>().HideDebugButton();
             }
+
+            // Set the frequency to be different based on the difficulty. Set up like this so the difficulty can change in endless mode
+            dangerFrequency = SetDangerFrequency();
+            InvokeRepeating("PutCandleInDanger", 3f, dangerFrequency);
         }
 
     }
@@ -61,9 +68,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (debugMode)
+
+    }
+
+    private void PutCandleInDanger()
+    {
+        int randomIndex = Random.Range(0, candleMeters.Length);
+
+        if (candleMeters[randomIndex].GetComponent<Candle>().GetDangerStatus())     // Check if the candle is already in danger
         {
-            // Code to make candles randomly enter danger mode here
+            // If it is, run the function again
+            PutCandleInDanger();
+        }
+        else
+        {
+            // If it isn't, put it in danger
+            candleMeters[randomIndex].GetComponent<Candle>().PutInDanger();
         }
     }
 
@@ -83,6 +103,21 @@ public class GameManager : MonoBehaviour
                 burnSpeedMultiplier = 1.5f;
                 restoreSpeedModifier = 1f;
                 break;
+        }
+    }
+
+    private float SetDangerFrequency()
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                return 20f;
+            case Difficulty.Medium:
+                return 15f;
+            case Difficulty.Hard:
+                return 10f;
+            default:
+                return 30f;
         }
     }
 
