@@ -546,3 +546,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candleMeter: {fileID: 8992385666843199815}
   burnSpeed: 0.1
+  taskObject: {fileID: 0}
