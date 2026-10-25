@@ -1,0 +1,227 @@
+#usda 1.0
+(
+    "Exported from Adobe Substance 3D Painter 11.0.3"
+    defaultPrim = "RootNode"
+)
+
+def "RootNode"
+{
+    def Scope "material"
+    {
+        def Material "lambert22" (
+            customData = {
+                dictionary adobe = {
+                    dictionary painter = {
+                        asset painterProject_spp = @C:/Users/Leviathan/Downloads/Burnout/Bottle/pot.spp@
+                    }
+                }
+            }
+        )
+        {
+            asset inputs:basecolor_tex = @pot_textures/Pot_lambert22_BaseColor_sRGB.1001.png@
+            asset inputs:compositedAmbientOcclusion_tex = @pot_textures/Pot_lambert22_OcclusionRoughnessMetallic_Raw.1001.png@
+            asset inputs:compositedNormalDX_tex = @pot_textures/Pot_lambert22_Normal_Raw.1001.png@
+            asset inputs:metallic_tex = @pot_textures/Pot_lambert22_OcclusionRoughnessMetallic_Raw.1001.png@
+            asset inputs:opacity_tex = @pot_textures/Pot_lambert22_BaseColor_sRGB.1001.png@
+            asset inputs:roughness_tex = @pot_textures/Pot_lambert22_OcclusionRoughnessMetallic_Raw.1001.png@
+            token outputs:adobe:surface.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/AdobeStandardMaterial_4_0Shader.outputs:surface>
+            token outputs:displacement.connect = </RootNode/material/lambert22/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:displacement>
+            token outputs:surface.connect = </RootNode/material/lambert22/UsdPreviewSurface/UsdPreviewSurfaceShader.outputs:surface>
+
+            def NodeGraph "UsdPreviewSurface"
+            {
+                def Shader "UsdPreviewSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    float3 inputs:diffuseColor.connect = </RootNode/material/lambert22/UsdPreviewSurface/diffuseColorTextureShader.outputs:rgb>
+                    float inputs:ior = 1.4
+                    float inputs:metallic.connect = </RootNode/material/lambert22/UsdPreviewSurface/metallicTextureShader.outputs:b>
+                    normal3f inputs:normal.connect = </RootNode/material/lambert22/UsdPreviewSurface/normalTextureShader.outputs:rgb>
+                    float inputs:occlusion.connect = </RootNode/material/lambert22/UsdPreviewSurface/occlusionTextureShader.outputs:r>
+                    float inputs:opacity.connect = </RootNode/material/lambert22/UsdPreviewSurface/opacityTextureShader.outputs:a>
+                    float inputs:roughness.connect = </RootNode/material/lambert22/UsdPreviewSurface/roughnessTextureShader.outputs:g>
+                    token outputs:displacement
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "diffuseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "roughnessTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:roughness_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:b
+                }
+
+                def Shader "opacityTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:opacity_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:a
+                }
+
+                def Shader "occlusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, 1, -1, 0)
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:compositedNormalDX_tex>
+                    float4 inputs:scale = (2, -2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/UsdPreviewSurface/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+            }
+
+            def NodeGraph "AdobeStandardMaterial_4_0"
+            {
+                def Shader "AdobeStandardMaterial_4_0Shader"
+                {
+                    uniform token info:id = "AdobeStandardMaterial_4_0"
+                    float inputs:ambientOcclusion.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/ambientOcclusionTextureShader.outputs:r>
+                    float3 inputs:baseColor.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/baseColorTextureShader.outputs:rgb>
+                    float inputs:coatIOR = 1.6
+                    float inputs:IOR = 1.4
+                    float inputs:metallic.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/metallicTextureShader.outputs:b>
+                    normal3f inputs:normal.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/normalTextureShader.outputs:rgb>
+                    float inputs:opacity.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/opacityTextureShader.outputs:a>
+                    float inputs:roughness.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/roughnessTextureShader.outputs:g>
+                    token outputs:surface
+                }
+
+                def Shader "TexCoordReader"
+                {
+                    uniform token info:id = "UsdPrimvarReader_float2"
+                    token inputs:varname = "st"
+                    float2 outputs:result
+                }
+
+                def Shader "baseColorTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:basecolor_tex>
+                    token inputs:sourceColorSpace = "sRGB"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float3 outputs:rgb
+                }
+
+                def Shader "roughnessTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:roughness_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:g
+                }
+
+                def Shader "metallicTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:metallic_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:b
+                }
+
+                def Shader "opacityTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:opacity_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:a
+                }
+
+                def Shader "normalTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    float4 inputs:bias = (-1, 1, -1, 0)
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:compositedNormalDX_tex>
+                    float4 inputs:scale = (2, -2, 2, 1)
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    normal3f outputs:rgb
+                }
+
+                def Shader "ambientOcclusionTextureShader"
+                {
+                    uniform token info:id = "UsdUVTexture"
+                    asset inputs:file.connect = </RootNode/material/lambert22.inputs:compositedAmbientOcclusion_tex>
+                    token inputs:sourceColorSpace = "raw"
+                    float2 inputs:st.connect = </RootNode/material/lambert22/AdobeStandardMaterial_4_0/TexCoordReader.outputs:result>
+                    token inputs:wrapS = "repeat"
+                    token inputs:wrapT = "repeat"
+                    float outputs:r
+                }
+            }
+        }
+    }
+
+    over "pCube44"
+    {
+        over "pCube44" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </RootNode/material/lambert22>
+        }
+    }
+}
+
