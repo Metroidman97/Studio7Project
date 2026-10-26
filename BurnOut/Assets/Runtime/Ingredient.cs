@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Ingredient : MonoBehaviour
 {
+    // BRANDON StART
+    [SerializeField] private VFX_dropSplash splashVFX;
+    // BRANDON END
     // Check if the ingredient is in the cauldron
     public bool isInCauldron = false;
 
@@ -30,11 +33,18 @@ public class Ingredient : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Cauldron")
+        //if (collision.tag == "Cauldron")
+        if (collision.CompareTag("Cauldron") && !isInCauldron)
         {
             isInCauldron = true;
+
+            //Play splash animation
+            if (splashVFX != null)
+            {
+                splashVFX.PlaySplash();
+            }
             taskManager.CheckIngredient(gameObject);
-            gameObject.layer = LayerMask.NameToLayer("Default");    // Set the layer to defualt so the item can't be pulled out of the cauldron
+            gameObject.layer = LayerMask.NameToLayer("Default");    // Set the layer to default so the item can't be pulled out of the cauldron
         }
     }
 

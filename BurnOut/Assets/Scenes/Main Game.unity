@@ -1010,6 +1010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cinnamon Stick
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.63
@@ -1062,6 +1066,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -2964,6 +2972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rose Petals
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.5
@@ -2998,11 +3010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024012740111766552, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.47
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9024012740111766552, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2.2
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 9024012740111766552, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -3012,6 +3024,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -3812,6 +3828,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1024886555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &484655311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484655312}
+  m_Layer: 0
+  m_Name: SplashPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484655312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484655311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.005329837, y: 0.015528746, z: 0.0057193716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1080131638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &485325357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,6 +4096,52 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 57537699}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &532194196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532194198}
+  - component: {fileID: 532194197}
+  m_Layer: 0
+  m_Name: SplashVFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &532194197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532194196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9436268e3ad282419123931602ed6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashPrefab: {fileID: 7423088810950471703, guid: 93c9e3856faae9f44b4e832097632b98, type: 3}
+  splashPoint: {fileID: 484655312}
+--- !u!4 &532194198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532194196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1080131638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565704041
 GameObject:
@@ -8074,7 +8167,16 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9b05b6bda15a4084f9b3e91d7dabd4d7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e5975cbda991a6040871cc3a2f289651, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2105208955}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e5975cbda991a6040871cc3a2f289651, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 532194198}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e5975cbda991a6040871cc3a2f289651, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 484655312}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5975cbda991a6040871cc3a2f289651, type: 3}
 --- !u!1 &1023523235
@@ -8287,6 +8389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jar Of Blood
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.38
@@ -8343,6 +8449,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -10046,6 +10156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Salt
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: -1.42
@@ -10098,6 +10212,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -10304,6 +10422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lavender
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.39
@@ -10364,6 +10486,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 10.13
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -13718,6 +13844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bay Leaves
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.49
@@ -13774,6 +13904,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -14977,6 +15111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystals
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.51
@@ -15025,6 +15163,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
@@ -16008,6 +16150,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097960086}
   m_CullTransparentMesh: 1
+--- !u!1 &2105208954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105208955}
+  - component: {fileID: 2105208956}
+  m_Layer: 0
+  m_Name: cauldronSurface_trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105208955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105208954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0053298, y: 0.015539, z: 0.0056913}
+  m_LocalScale: {x: 0.010000001, y: 0.005, z: 0.01}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1080131638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2105208956
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105208954}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2110078309
 GameObject:
   m_ObjectHideFlags: 0
@@ -16589,6 +16808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rosemary
       objectReference: {fileID: 0}
+    - target: {fileID: 3256114044325920306, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: m_TagString
+      value: Ingredient
+      objectReference: {fileID: 0}
     - target: {fileID: 6913033026755798603, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_Size.x
       value: 1.43
@@ -16649,6 +16872,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 33
       objectReference: {fileID: 0}
+    - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
+      propertyPath: splashVFX
+      value: 
+      objectReference: {fileID: 532194197}
     - target: {fileID: 9096308657098151834, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: selectedAudio
       value: 
