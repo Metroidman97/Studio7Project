@@ -13,6 +13,12 @@ public class Task2Manager : MonoBehaviour, ITask
     // Candle meter
     public Candle candle;
 
+    //Public Facing audio
+    public AudioClip BonePickUp;
+    public AudioClip BonePlace;
+    public AudioClip CorrectOrder;
+    public AudioSource keyTaskAudio;
+
     [SerializeField]
     private GameObject[] bones;                             // Array of bone objects
 
@@ -115,6 +121,7 @@ public class Task2Manager : MonoBehaviour, ITask
             Vector2 bonePos = new Vector2((float)Math.Round(bones[i].transform.localPosition.x, 2), (float)Math.Round(bones[i].transform.localPosition.y, 2));
             Vector2 pannelBonePos = new Vector2((float)Math.Round(pannelBones[i].transform.localPosition.x, 2), (float)Math.Round(pannelBones[i].transform.localPosition.y, 2));
 
+
             if (bonePos == pannelBonePos)
             {
                 correctBones++;
@@ -124,6 +131,10 @@ public class Task2Manager : MonoBehaviour, ITask
         if (correctBones == 4)
         {
             finishButton.SetActive(true);
+            keyTaskAudio.pitch = 0.82f;
+            keyTaskAudio.PlayOneShot(CorrectOrder); //SAVANNA: Play the correct order sound effect when the bones are in the correct order
         }
+        keyTaskAudio.pitch = 0.82f;
+        keyTaskAudio.PlayOneShot(BonePlace); //SAVANNA: Play the bone place sound effect when the bones are put down
     }
 }
