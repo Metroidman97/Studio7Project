@@ -74,4 +74,9 @@ public class Task3Manager : MonoBehaviour, ITask
         yield return new WaitForSeconds(waitTime);
         releaseButton.SetActive(true);
     }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        // Empty function for interface compatibility
+    }
 }

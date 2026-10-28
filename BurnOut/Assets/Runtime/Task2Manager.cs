@@ -126,4 +126,9 @@ public class Task2Manager : MonoBehaviour, ITask
             finishButton.SetActive(true);
         }
     }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        // Empty function for interface compatibility
+    }
 }

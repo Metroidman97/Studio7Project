@@ -38,4 +38,10 @@ public class NightTimer : MonoBehaviour
     {
         nightTimer.value = nightTimer.maxValue;
     }
+
+    public void ActivateEndlessMode()
+    {
+        nightTimer.gameObject.SetActive(false);
+        nightTimeSpeed = 0;
+    }
 }
