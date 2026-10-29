@@ -137,4 +137,9 @@ public class Task2Manager : MonoBehaviour, ITask
         keyTaskAudio.pitch = 0.82f;
         keyTaskAudio.PlayOneShot(BonePlace); //SAVANNA: Play the bone place sound effect when the bones are put down
     }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        // Empty function for interface compatibility
+    }
 }

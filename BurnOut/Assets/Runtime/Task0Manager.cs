@@ -48,7 +48,7 @@ public class Task0Manager : MonoBehaviour, ITask
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();   // Get the game manager script
         diffRating = (int)gameManager.difficulty;                                   // Get the index value of the difficulty setting
-        recipeLibrary = new RecipeLibrary(diffRating);                              // Get the recipe library script
+        recipeLibrary = GetRecipeLibrary(diffRating);                               // Get the recipe library script
         
         // Set the mix and finish buttons as inactive
         mixButton.SetActive(false);
@@ -180,5 +180,16 @@ public class Task0Manager : MonoBehaviour, ITask
         {
             ingredients[i].layer = LayerMask.NameToLayer("Draggable");
         }
+    }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        diffRating = difficultyId;
+        recipeLibrary = GetRecipeLibrary(difficultyId);     // Get a new recipe library object with the new difficulty 
+    }
+
+    private RecipeLibrary GetRecipeLibrary(int difficultyId)
+    {
+        return new RecipeLibrary(difficultyId);
     }
 }

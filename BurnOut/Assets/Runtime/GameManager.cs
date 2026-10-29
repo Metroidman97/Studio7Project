@@ -38,6 +38,14 @@ public class GameManager : MonoBehaviour
     // How frequently candles get put in danger automatically
     private float dangerFrequency;
 
+    public bool endlessMode = false;
+
+    // Timer for how long the player lasts in endless mode
+    public float endlessTimer = 0;
+
+    // The number of tasks completed during endless mode
+    private int endlessTaskCounter = 0;
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -46,7 +54,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetMultiplier();
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
 
@@ -63,6 +70,12 @@ public class GameManager : MonoBehaviour
             InvokeRepeating("PutCandleInDanger", 3f, dangerFrequency);
         }
 
+        if (endlessMode)
+        {
+            GameObject.Find("NightInfo").GetComponent<NightTimer>().ActivateEndlessMode();
+            difficulty = Difficulty.Easy;   // Set the difficulty to easy at the start of endless mode
+        }
+        SetMultiplier();
     }
 
     // Update is called once per frame
@@ -137,5 +150,35 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void IncrementTaskNumber()
+    {
+        // Increment the task counter every time one is completed
+        endlessTaskCounter++;
+        IncreaseDifficulty(endlessTaskCounter);
+    }
+
+    private void IncreaseDifficulty(int tasksCompleted)
+    {
+        switch (tasksCompleted)
+        {
+            case 5: difficulty = Difficulty.Medium; 
+                break;
+            case 10: difficulty = Difficulty.Hard;
+                break;
+        }
+
+        // Increase the difficulty for each task and change the relevant candle modifiers
+        IncreaseDifficulty(difficulty);
+        SetMultiplier();
+    }
+
+    private void IncreaseDifficulty(Difficulty difficulty)
+    {
+        for (int i = 0; i < candleMeters.Length; i++)
+        {
+            candleMeters[i].GetComponent<Candle>().ChangeTaskDifficulty((int)difficulty);
+        }
     }
 }

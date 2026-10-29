@@ -93,4 +93,9 @@ public class Task3Manager : MonoBehaviour, ITask
         yield return new WaitForSeconds(waitTime);
         keyTaskAudio.Stop();
     }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        // Empty function for interface compatibility
+    }
 }
