@@ -417,7 +417,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 382010012}
   m_Father: {fileID: 697767529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -879,7 +880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.366
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1519,6 +1520,8 @@ MonoBehaviour:
   - {fileID: 1491795074}
   - {fileID: 1826448341}
   - {fileID: 969120685}
+  endlessMode: 0
+  endlessTimer: 0
 --- !u!4 &159862304
 Transform:
   m_ObjectHideFlags: 0
@@ -2679,13 +2682,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BackgroundImageChanger, Assembly-CSharp
-        m_MethodName: DisplayTask1
-        m_Mode: 1
+      - m_Target: {fileID: 382010013}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21300000, guid: ab2c3146eddca7845912856804be7d3c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2867,7 +2870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.39
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3172,6 +3175,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372995160}
   m_CullTransparentMesh: 1
+--- !u!1 &382010011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382010012}
+  - component: {fileID: 382010013}
+  m_Layer: 0
+  m_Name: BackgroundSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &382010012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382010011}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -64.79999}
+  m_LocalScale: {x: 108, y: 108, z: 108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42821739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &382010013
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382010011}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 07246777b383e644db3fd62e2ed98a69, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 16682092a49be504192322ebf0adabda, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &428326548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4284,7 +4371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.889
+      value: -15.377409
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4618,7 +4705,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 53cbe6e353b85e741bf41a5ab6c6706f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6be945c672a44344f9a3543c7cb26cdb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4638,7 +4725,7 @@ Transform:
   m_GameObject: {fileID: 634701067}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.68}
+  m_LocalPosition: {x: 0, y: 0, z: 6.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5262,7 +5349,7 @@ Transform:
   m_GameObject: {fileID: 657462726}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0071, y: 0.02, z: 3.3}
+  m_LocalPosition: {x: -0.0071, y: 0.02, z: 5}
   m_LocalScale: {x: 0.93067425, y: 0.9431676, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6185,7 +6272,7 @@ Transform:
   m_GameObject: {fileID: 789988130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: 3.1}
+  m_LocalPosition: {x: 0, y: 0.35, z: 5}
   m_LocalScale: {x: 0.9340586, y: 1.014438, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8291,7 +8378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3899994
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9077,13 +9164,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BackgroundImageChanger, Assembly-CSharp
-        m_MethodName: DisplayTask0
-        m_Mode: 1
+      - m_Target: {fileID: 382010013}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21300000, guid: 16682092a49be504192322ebf0adabda, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9949,7 +10036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.011
+      value: -15.499409
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10188,7 +10275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0300295
+      value: -0.009595961
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10200,7 +10287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.481
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10465,7 +10552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.476
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10634,7 +10721,7 @@ Transform:
   m_GameObject: {fileID: 1247664894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 0, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11725,7 +11812,7 @@ Transform:
   m_GameObject: {fileID: 1337896270}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.09, y: -0.51, z: 0}
+  m_LocalPosition: {x: -4.09, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12308,13 +12395,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505344921}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47091457, y: -0, z: -0, w: 0.88217884}
-  m_LocalPosition: {x: -0.15, y: -0.71999997, z: 1.43}
-  m_LocalScale: {x: 0.42, y: 0.918945, z: 0.72}
+  m_LocalRotation: {x: 0.52903736, y: -0, z: -0, w: 0.8485986}
+  m_LocalPosition: {x: -0.15, y: -0.7999999, z: 0.19999981}
+  m_LocalScale: {x: 0.3734682, y: 0.918945, z: 0.72}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1356314693}
-  m_LocalEulerAnglesHint: {x: 56.187, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 63.881, y: 0, z: 0}
 --- !u!212 &1505344923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12445,7 +12532,7 @@ Transform:
   m_GameObject: {fileID: 1510057848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.3}
+  m_LocalPosition: {x: 0, y: 0, z: 5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13994,7 +14081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.889
+      value: -15.377409
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14136,13 +14223,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BackgroundImageChanger, Assembly-CSharp
-        m_MethodName: DisplayTask3
-        m_Mode: 1
+      - m_Target: {fileID: 382010013}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21300000, guid: 9dfdaecf0f53e6e42966e2313a7b22fd, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14204,7 +14291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0300295
+      value: -0.009595961
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14216,7 +14303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.221
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15229,13 +15316,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BackgroundImageChanger, Assembly-CSharp
-        m_MethodName: DisplayTask2
-        m_Mode: 1
+      - m_Target: {fileID: 382010013}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21300000, guid: 6be945c672a44344f9a3543c7cb26cdb, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15471,7 +15558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.2580004
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15637,7 +15724,7 @@ Transform:
   m_GameObject: {fileID: 1928941337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.96, y: -2, z: 0}
+  m_LocalPosition: {x: -3.96, y: -2, z: 0.87}
   m_LocalScale: {x: 2.5556, y: 1.9486449, z: 2.5556}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15863,7 +15950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.987
+      value: -15.475409
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5eaa57c9b304935468d2abd96312f4e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16096,7 +16183,7 @@ Transform:
   m_GameObject: {fileID: 2011387452}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 4.0739822, y: 2.3572118, z: 0}
   m_LocalScale: {x: 0.9247738, y: 0.9247738, z: 0.9247738}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17298,7 +17385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.39
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1019634362645131548, guid: 0e2f8f258f5a4384b83bc6625e235865, type: 3}
       propertyPath: m_LocalRotation.w
