@@ -76,6 +76,7 @@ public class Task3Manager : MonoBehaviour, ITask
     public void FinishTask()
     {
         releaseButton.SetActive(false);
+        StartCoroutine(PourWaterSound());
         candle.PutOutOfDanger();
     }
 
@@ -85,12 +86,20 @@ public class Task3Manager : MonoBehaviour, ITask
         yield return new WaitForSeconds(waitTime);
         releaseButton.SetActive(true);
 
+        /*
         keyTaskAudio.pitch = 0.82f;
         keyTaskAudio.PlayOneShot(FaucetSqueak); //SAVANNA: Play the faucet squeak before water faucet
+        */
 
+        
+    }
+
+    private IEnumerator PourWaterSound()
+    {
+        keyTaskAudio.Stop();
         keyTaskAudio.pitch = 0.82f;
         keyTaskAudio.PlayOneShot(WaterFaucet); //SAVANNA: Play the water running sound effect when the task is completed
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(3f);
         keyTaskAudio.Stop();
     }
 

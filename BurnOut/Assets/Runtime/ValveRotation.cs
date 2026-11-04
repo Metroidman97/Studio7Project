@@ -19,6 +19,9 @@ public class ValveRotation : MonoBehaviour
     // Check if the valve has reached the end of its rotation
     private bool hasReachedEnd = false;
 
+    public AudioSource audioSource;
+    public AudioClip valveSqueak;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +68,10 @@ public class ValveRotation : MonoBehaviour
             {
                 accumulatedDegrees -= 360f;
                 rotations++;
+
+                // Play the sound of the valve squeaking every time it makes a full turn
+                //audioSource.pitch = 0.82f;
+                //audioSource.PlayOneShot(valveSqueak);
             } 
         }
         else if (accumulatedDegrees <= 0f)
