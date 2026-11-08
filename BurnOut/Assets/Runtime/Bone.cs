@@ -1,10 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class Bone : MonoBehaviour
 {
     public int ID;
+    [SerializeField]
+    Animator animator;
+    [SerializeField]
+    SpriteRenderer sprites;
 
     [SerializeField]
     private Transform[] snapPoints;
@@ -54,5 +60,29 @@ public class Bone : MonoBehaviour
         }
         transform.position = targetPosition;
         task.CheckBones();
+        PlayAnimations(task.NewCorrectBone());
+      
+    }
+
+    //JACOB
+    private void PlayAnimations(bool correct)
+        //bool correct
+    {
+        sprites.enabled = true;
+        animator.enabled = true;
+        //animator.Play("bonesFail", 0, 0f);
+
+        print(correct);
+        if (correct) { animator.Play("bonesSucess", -1, 0f); }
+        else { animator.Play("bonesFail", -1, 0f); }
+
+        StartCoroutine(DelayedHide());
+    }
+
+    IEnumerator DelayedHide()
+    { 
+        yield return new WaitForSeconds(0.85f);
+        sprites.enabled = false;
+        animator.enabled = false;
     }
 }
