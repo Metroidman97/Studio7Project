@@ -1878,6 +1878,22 @@ MonoBehaviour:
   successfulBrew: {fileID: 8300000, guid: 5884d9d946df6be4789f89a896a19781, type: 3}
   failedBrew: {fileID: 8300000, guid: e850cc2ce9415ec43ae2cc0711a07317, type: 3}
   candle: {fileID: 2087088838}
+  caldronTop: {fileID: 1505344921}
+  caldronOptions:
+  - {fileID: 871011294, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: -630949032, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 637811271, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 927822685, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: -1641944008, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: -1413081706, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: -1227261701, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 180750914, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: -1653876169, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 533997321, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 1344155833, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 1711115727, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: -1893139770, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
+  - {fileID: 1970081262, guid: 03256f6e77f741141b91a98505e5f29e, type: 3}
   ingredients:
   - {fileID: 619357465}
   - {fileID: 1029911538}
