@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UIElements;
 
 public class Task2Manager : MonoBehaviour, ITask
 {
@@ -35,6 +36,12 @@ public class Task2Manager : MonoBehaviour, ITask
 
     private Vector2[] pannelBonePositions = new Vector2[4]; // Array of position vectors for the pannel bones
 
+    public GameObject VFXPlayer;
+
+    private bool newCorrectBone = false;
+    private int currentBoneCount = 0;
+    private int previousCorrectBoneCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +54,7 @@ public class Task2Manager : MonoBehaviour, ITask
     {
         
     }
+
     public void StartTask()
     {
         // Make the bones draggable
@@ -103,13 +111,15 @@ public class Task2Manager : MonoBehaviour, ITask
 
     private void RandomizePannelBones()
     {
-        // Make the pannel bones visible and shuffle their positions
+        // Make the pannel bones visible and shuffle their positions and reduce the correct bone # to 0
         pannelBonePositions.Shuffle();
         for (int i = 0; i < pannelBones.Length; i++)
         {
             pannelBones[i].SetActive(true);
             pannelBones[i].transform.position = pannelBonePositions[i];
         }
+        //JACOB
+        currentBoneCount = 0;
     }
 
     public void CheckBones()
@@ -124,18 +134,42 @@ public class Task2Manager : MonoBehaviour, ITask
 
             if (bonePos == pannelBonePos)
             {
-                correctBones++;
+               correctBones++;
+            } 
+
+        }
+        //The purpose of this script is to return true if the previous
+
+            
+       if (correctBones > currentBoneCount) 
+        { 
+            currentBoneCount = correctBones;
+            newCorrectBone = true;
+        }
+        else if (correctBones <= currentBoneCount)
+        {
+            newCorrectBone = false;
+            if (correctBones < currentBoneCount) 
+            {
+                currentBoneCount--;
             }
         }
 
         if (correctBones == 4)
         {
             finishButton.SetActive(true);
-            keyTaskAudio.pitch = 0.82f;
+            //keyTaskAudio.pitch = 0.82f;
             keyTaskAudio.PlayOneShot(CorrectOrder); //SAVANNA: Play the correct order sound effect when the bones are in the correct order
         }
-        keyTaskAudio.pitch = 0.82f;
+        //keyTaskAudio.pitch = 0.82f;
         keyTaskAudio.PlayOneShot(BonePlace); //SAVANNA: Play the bone place sound effect when the bones are put down
+    }
+
+    public bool NewCorrectBone()
+    {
+        bool temp = newCorrectBone;
+        newCorrectBone = false;
+        return temp;
     }
 
     public void ChangeDifficulty(int difficultyId)
