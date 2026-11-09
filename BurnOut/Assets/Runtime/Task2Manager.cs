@@ -36,11 +36,8 @@ public class Task2Manager : MonoBehaviour, ITask
 
     private Vector2[] pannelBonePositions = new Vector2[4]; // Array of position vectors for the pannel bones
 
-    public GameObject VFXPlayer;
-
     private bool newCorrectBone = false;
     private int currentBoneCount = 0;
-    private int previousCorrectBoneCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -131,21 +128,27 @@ public class Task2Manager : MonoBehaviour, ITask
             Vector2 bonePos = new Vector2((float)Math.Round(bones[i].transform.localPosition.x, 2), (float)Math.Round(bones[i].transform.localPosition.y, 2));
             Vector2 pannelBonePos = new Vector2((float)Math.Round(pannelBones[i].transform.localPosition.x, 2), (float)Math.Round(pannelBones[i].transform.localPosition.y, 2));
 
+            print("This is the bone pos: " + bonePos);
+            print("This is the panel pos: " + pannelBonePos);
+
 
             if (bonePos == pannelBonePos)
             {
+                print("BONE IN RIGHT SPOT");
                correctBones++;
             } 
 
         }
         //The purpose of this script is to return true if the previous
 
-            
+       //print(correctBones);
+
+
        if (correctBones > currentBoneCount) 
-        { 
+       {
             currentBoneCount = correctBones;
             newCorrectBone = true;
-        }
+       }
         else if (correctBones <= currentBoneCount)
         {
             newCorrectBone = false;

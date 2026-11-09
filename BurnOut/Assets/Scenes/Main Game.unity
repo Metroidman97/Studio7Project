@@ -265,11 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.590002
+      value: -2.3199983
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61101033}
   m_Layer: 0
-  m_Name: BonePosition1
+  m_Name: PanelBonePosition1
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -634,7 +634,7 @@ Transform:
   m_GameObject: {fileID: 61101032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0800023, y: 0.34, z: 0}
+  m_LocalPosition: {x: -0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2880,7 +2880,7 @@ Transform:
   m_GameObject: {fileID: 275225676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.96, y: -0.02, z: 0}
+  m_LocalPosition: {x: 74.96, y: -0.02, z: 12.7}
   m_LocalScale: {x: 0.925142, y: 0.94886357, z: 0.94886357}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4014,11 +4014,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.1900024
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: -0.0200001
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4230,11 +4230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5500023
+      value: 0.72000146
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: -0.0200001
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6763,7 +6763,7 @@ Transform:
   m_GameObject: {fileID: 736077635}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.410002, y: 0.17, z: 0.4103828}
+  m_LocalPosition: {x: 0.01, y: -0.22, z: 0.4103828}
   m_LocalScale: {x: 0.85678756, y: 0.8031556, z: 0.6621233}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8317,7 +8317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 907044623}
   m_Layer: 0
-  m_Name: BonePosition3
+  m_Name: PanelBonePosition3
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8332,7 +8332,7 @@ Transform:
   m_GameObject: {fileID: 907044622}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0800023, y: 0.34, z: 0}
+  m_LocalPosition: {x: 2.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10020,7 +10020,6 @@ MonoBehaviour:
   - {fileID: 61101033}
   - {fileID: 1912064213}
   - {fileID: 907044623}
-  VFXPlayer: {fileID: 0}
 --- !u!82 &1041611582
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11166,7 +11165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115582827}
   m_Layer: 0
-  m_Name: BonePosition0
+  m_Name: PanelBonePosition0
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -11181,7 +11180,7 @@ Transform:
   m_GameObject: {fileID: 1115582826}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5800023, y: 0.34, z: 0}
+  m_LocalPosition: {x: -2.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12140,11 +12139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.09
+      value: 2.180004
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: -0.0200001
       objectReference: {fileID: 0}
     - target: {fileID: 7540876423110619695, guid: 3d548f2019be320448bbf6f6ffe99eaf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18059,7 +18058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912064213}
   m_Layer: 0
-  m_Name: BonePosition2
+  m_Name: PanelBonePosition2
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -18074,7 +18073,7 @@ Transform:
   m_GameObject: {fileID: 1912064212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5800023, y: 0.34, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
