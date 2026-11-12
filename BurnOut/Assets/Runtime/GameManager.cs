@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Counter for the current night. Will be used to select difficulty.
-    public int nightCounter;
+    public int nightCounter = 1;
+
+    private int activeTasks = 1;
 
     // Public enum difficulty variable
     public Difficulty difficulty;
@@ -40,15 +42,64 @@ public class GameManager : MonoBehaviour
 
     public bool endlessMode = false;
 
+    public bool newGame = false;
+
     // Timer for how long the player lasts in endless mode
     public float endlessTimer = 0;
+
+    public float endlessHighScore;
 
     // The number of tasks completed during endless mode
     private int endlessTaskCounter = 0;
 
+    private SaveDataManager saveDataManager;
+
+    private bool gameIsGoing = false;
+
     private void Awake()
     {
         Time.timeScale = 1f;
+        if (SaveDataManager.Instance != null)
+        {
+            saveDataManager = SaveDataManager.Instance;
+        }
+
+        if (saveDataManager != null)
+        {
+            // Set the data from the save data manager
+            newGame = saveDataManager.newGame;
+            endlessMode = saveDataManager.endlessMode;
+            nightCounter = saveDataManager.nightNumber;
+        }
+        else
+        {
+            // Default to new game if save data manager is null
+            newGame = true;
+            endlessMode = false;
+            nightCounter = 1;
+        }
+
+        if (!newGame && !endlessMode)
+        {
+            // Only load data when coming from the main menu
+            //nightCounter = LoadData();
+        }
+        else if (newGame && !endlessMode)
+        {
+            nightCounter = 1;
+        }
+
+        if (endlessMode)
+        {
+            GameObject.Find("NightInfo").GetComponent<NightTimer>().ActivateEndlessMode();
+            difficulty = Difficulty.Easy;   // Set the difficulty to easy at the start of endless mode
+            endlessHighScore = LoadEndlessScore();
+        }
+        else if (!endlessMode)
+        {
+            activeTasks = SetNightDifficulty();   // Set the difficulty on the specific night when not playing in endless mode
+            //IncreaseDifficulty(difficulty);
+        }
     }
 
     // Start is called before the first frame update
@@ -56,6 +107,8 @@ public class GameManager : MonoBehaviour
     {
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
+
+        
 
         // Hide the danger mode button for each candle when debug mode is off
         if (!debugMode)
@@ -67,15 +120,15 @@ public class GameManager : MonoBehaviour
 
             // Set the frequency to be different based on the difficulty. Set up like this so the difficulty can change in endless mode
             dangerFrequency = SetDangerFrequency();
-            InvokeRepeating("PutCandleInDanger", 3f, dangerFrequency);
+            if (activeTasks > 0)
+            {
+                InvokeRepeating(nameof(PutCandleInDanger), 3f, dangerFrequency);
+            }
         }
 
-        if (endlessMode)
-        {
-            GameObject.Find("NightInfo").GetComponent<NightTimer>().ActivateEndlessMode();
-            difficulty = Difficulty.Easy;   // Set the difficulty to easy at the start of endless mode
-        }
         SetMultiplier();
+
+        gameIsGoing = true;
     }
 
     // Update is called once per frame
@@ -86,7 +139,7 @@ public class GameManager : MonoBehaviour
 
     private void PutCandleInDanger()
     {
-        int randomIndex = Random.Range(0, candleMeters.Length);
+        int randomIndex = Random.Range(0, activeTasks);
 
         if (candleMeters[randomIndex].GetComponent<Candle>().GetDangerStatus())     // Check if the candle is already in danger
         {
@@ -97,6 +150,37 @@ public class GameManager : MonoBehaviour
         {
             // If it isn't, put it in danger
             candleMeters[randomIndex].GetComponent<Candle>().PutInDanger();
+        }
+    }
+
+    private int SetNightDifficulty()
+    {
+        switch(nightCounter)
+        {
+            case 1:
+                difficulty = Difficulty.Easy;
+                return 1; // Only the cauldron task is active for night 1
+            case 2:
+                difficulty = Difficulty.Easy;
+                return 2; // Cauldron and sigils are active for night 2
+            case 3:
+                difficulty = Difficulty.Medium;
+                return 3; // Cauldron, sigils, and bones are active night 3
+            case 4:
+                difficulty = Difficulty.Medium;
+                return 4; // All 4 tasks are active night 4
+            case 5:
+                difficulty = Difficulty.Hard;
+                return 4; // All 4 tasks are active night 5
+            case 6:
+                difficulty = Difficulty.Easy;
+                return 0; // No tasks available on night 6, night 6 is the "win screen"
+            default:
+                Debug.Log(nightCounter);
+                Debug.LogWarning("Invalid night number");
+                nightCounter = 1;
+                difficulty = Difficulty.Easy;
+                return 1; // Set to night 1 on invalid night number
         }
     }
 
@@ -121,7 +205,7 @@ public class GameManager : MonoBehaviour
 
     private float SetDangerFrequency()
     {
-        switch (difficulty)
+        switch(difficulty)
         {
             case Difficulty.Easy:
                 return 20f;
@@ -136,8 +220,18 @@ public class GameManager : MonoBehaviour
 
     public void LevelWin()
     {
-        winScreen.SetActive(true);
-        Time.timeScale = 0;
+        if (gameIsGoing)
+        {
+            SaveData(); // Save the data before incrementing the night counter, so it doesn't go above 5
+            saveDataManager.nightNumber++;
+            if (saveDataManager.nightNumber >= 6)
+            {
+                saveDataManager.nightNumber = 6;   // Make sure the night counter doesn't go above 6. Night 6 would be the "win screen"
+            }
+            winScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+        gameIsGoing = false;    // Only run the code above once
     }
 
     public void LevelLose()
@@ -148,6 +242,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        // Include logic for winning the game if the night counter reaches night 6
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -179,6 +274,50 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < candleMeters.Length; i++)
         {
             candleMeters[i].GetComponent<Candle>().ChangeTaskDifficulty((int)difficulty);
+        }
+    }
+
+    private int LoadData()
+    {
+        PlayerSaveData loadedData = SaveSystem.LoadGame(endlessMode);
+
+        if (loadedData != null)
+        {
+            return loadedData.nightNum;
+        }
+        else
+        {
+            // Default to 1 if no data to load
+            return 1;
+        }
+    }
+
+    private float LoadEndlessScore()
+    {
+        PlayerSaveData loadedData = SaveSystem.LoadGame(endlessMode);
+
+        if (loadedData != null)
+        {
+            return loadedData.endlessTime;
+        }
+        else
+        {
+            // Default to 0 if no data to load
+            return 0;
+        }
+    }
+
+    public void SaveData()
+    {
+        if (!endlessMode)
+        {
+            PlayerSaveData data = new PlayerSaveData(nightCounter);
+            SaveSystem.SaveGame(data, endlessMode);
+        }
+        else if (endlessMode)
+        {
+            PlayerSaveData data = new PlayerSaveData(endlessHighScore);
+            SaveSystem.SaveGame(data, endlessMode);
         }
     }
 }

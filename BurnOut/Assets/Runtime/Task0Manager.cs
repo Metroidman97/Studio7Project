@@ -47,7 +47,7 @@ public class Task0Manager : MonoBehaviour, ITask
     // Number of correct ingredients in the cauldron
     private int correctIngredients = 0;
 
-    private void Awake()
+    private void Start()
     {
         caldronTopSprite = caldronTop.GetComponent<SpriteRenderer>();
         // Clear the needed ingredients list
@@ -68,6 +68,8 @@ public class Task0Manager : MonoBehaviour, ITask
             ingredients[i].layer = LayerMask.NameToLayer("Default");
         }
     }
+
+    
 
     public void ResetTask()
     {

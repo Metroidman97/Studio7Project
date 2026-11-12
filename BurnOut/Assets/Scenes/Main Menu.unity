@@ -1165,7 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae750ecf6801350418ead4f16f1086bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightNumber: 0
+  nightNumber: 1
   newGame: 0
   endlessMode: 0
 --- !u!4 &1611718155
