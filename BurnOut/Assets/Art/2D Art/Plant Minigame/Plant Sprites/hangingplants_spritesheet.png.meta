@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd337b678f1068b4780f2c8e01744a58
-      internalID: -2043214382
+      spriteID: 8aa93f697aebcf941aeb5a429d0a1f31
+      internalID: -1678500733
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 300
-        y: 998
+        y: 1000
         width: 300
         height: 500
       alignment: 0
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bef06eedd4da8948b11449e2533d62c
-      internalID: 1117651552
+      spriteID: 03b1a3d50b011844299613791de4e726
+      internalID: 1947464955
       vertices: []
       indices: 
       edges: []
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94c0a2de33c160348bbdaacda27cf5f9
-      internalID: -1227206316
+      spriteID: 9d4c9e9c8486a9f418a86a0e4a633ed8
+      internalID: 1237798636
       vertices: []
       indices: 
       edges: []
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21203af6991c738489b8be98f7cebf51
-      internalID: -1369680260
+      spriteID: 33cc093fe6a1eb449acb069e124cd845
+      internalID: -1314389315
       vertices: []
       indices: 
       edges: []
@@ -195,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 296437188bf9da04181a2333c5a43c9d
-      internalID: 1214266867
+      spriteID: abe10e31c1bbc7640a60ac23fb6bf6a8
+      internalID: -921075199
       vertices: []
       indices: 
       edges: []
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d34b5284d0d12ac498715fa51a087159
-      internalID: 1265612680
+      spriteID: 4ddad60f11e75cb4285408ae1fede4db
+      internalID: -127331898
       vertices: []
       indices: 
       edges: []
@@ -237,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a2eb7f44fa3a5441abe24fc6925aec0
-      internalID: 1932628161
+      spriteID: 1a8506499cdb8a64491e45262ec9c38d
+      internalID: -1746438046
       vertices: []
       indices: 
       edges: []
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f9df19dee1bf254bb999577536fe864
-      internalID: -1410393648
+      spriteID: 77d03f81818c7ec4187964c4ae1d2a1c
+      internalID: -1679325164
       vertices: []
       indices: 
       edges: []
@@ -279,8 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea4f83700ca775a4fb25d87797f77025
-      internalID: 818282452
+      spriteID: 5cd8343137f700f45a9d12e30cf6827c
+      internalID: -1403842461
       vertices: []
       indices: 
       edges: []
@@ -296,15 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hangingplants_all_watered: -2043214382
-      hangingplants_all_wilted: 1117651552
-      hangingplants_green_watered: -1410393648
-      hangingplants_green_wilted: 818282452
-      hangingplants_orange_watered: -1369680260
-      hangingplants_orange_wilted: 1214266867
-      hangingplants_pole: -1227206316
-      hangingplants_purple_watered: 1265612680
-      hangingplants_purple_wilted: 1932628161
+      hangingplants_all_watered: -1678500733
+      hangingplants_all_wilted: 1947464955
+      hangingplants_green_watered: -1679325164
+      hangingplants_green_wilted: -1403842461
+      hangingplants_orange_watered: -1314389315
+      hangingplants_orange_wilted: -921075199
+      hangingplants_pole: 1237798636
+      hangingplants_purple_watered: -127331898
+      hangingplants_purple_wilted: -1746438046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
