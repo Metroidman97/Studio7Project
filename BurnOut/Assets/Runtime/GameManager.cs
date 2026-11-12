@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     // Counter for the current night. Will be used to select difficulty.
     public int nightCounter = 1;
 
-    private int activeTasks = 1;
+    private int activeTasks = 4;
 
     // Public enum difficulty variable
     public Difficulty difficulty;
@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     private bool gameIsGoing = false;
 
+    private bool nightStarted = true;
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
         if (!newGame && !endlessMode)
         {
             // Only load data when coming from the main menu
-            //nightCounter = LoadData();
+            //nightCounter = LoadMainGameData();
         }
         else if (newGame && !endlessMode)
         {
@@ -98,7 +100,6 @@ public class GameManager : MonoBehaviour
         else if (!endlessMode)
         {
             activeTasks = SetNightDifficulty();   // Set the difficulty on the specific night when not playing in endless mode
-            //IncreaseDifficulty(difficulty);
         }
     }
 
@@ -140,6 +141,17 @@ public class GameManager : MonoBehaviour
     private void PutCandleInDanger()
     {
         int randomIndex = Random.Range(0, activeTasks);
+
+        // Make it so the first task of the night is always the new task introduced
+        if (nightStarted)
+        {
+            randomIndex = nightCounter - 1;
+            if (randomIndex >= candleMeters.Length)
+            {
+                randomIndex = candleMeters.Length - 1; // Prevent any index out of bounds errors
+            }
+            nightStarted = false;
+        }
 
         if (candleMeters[randomIndex].GetComponent<Candle>().GetDangerStatus())     // Check if the candle is already in danger
         {
@@ -222,7 +234,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameIsGoing)
         {
-            SaveData(); // Save the data before incrementing the night counter, so it doesn't go above 5
+            SaveMainGameData(nightCounter); // Save the data before incrementing the night counter, so it doesn't go above 5
             saveDataManager.nightNumber++;
             if (saveDataManager.nightNumber >= 6)
             {
@@ -277,47 +289,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int LoadData()
+    private int LoadMainGameData()
     {
-        PlayerSaveData loadedData = SaveSystem.LoadGame(endlessMode);
+        int loadedNum = SaveSystem.LoadMainGame();
 
-        if (loadedData != null)
+        if (loadedNum > 0)
         {
-            return loadedData.nightNum;
+            return loadedNum;
         }
         else
         {
             // Default to 1 if no data to load
+            Debug.LogWarning("No main game data loaded");
             return 1;
         }
     }
 
     private float LoadEndlessScore()
     {
-        PlayerSaveData loadedData = SaveSystem.LoadGame(endlessMode);
+        float loadedScore = SaveSystem.LoadEndlessHiScore();
 
-        if (loadedData != null)
+        if (loadedScore != float.NaN)
         {
-            return loadedData.endlessTime;
+            return loadedScore;
         }
         else
         {
             // Default to 0 if no data to load
+            Debug.LogWarning("No high score loaded");
             return 0;
         }
     }
 
-    public void SaveData()
+    public void SaveMainGameData(int nightNum)
     {
-        if (!endlessMode)
-        {
-            PlayerSaveData data = new PlayerSaveData(nightCounter);
-            SaveSystem.SaveGame(data, endlessMode);
-        }
-        else if (endlessMode)
-        {
-            PlayerSaveData data = new PlayerSaveData(endlessHighScore);
-            SaveSystem.SaveGame(data, endlessMode);
-        }
+        SaveSystem.SaveMainGame(nightNum);
     }
 }

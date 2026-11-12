@@ -7,76 +7,55 @@ using UnityEngine;
 public static class SaveSystem
 {
     // Save files for the main game and endless mode. Main game save file only saves the night number, endless mode save file saves the player's high score
-    public static string mainFilePath = Path.Combine(Application.persistentDataPath, "mainSaveFile");       // Main game save file
-    public static string endlessFilePath = Path.Combine(Application.persistentDataPath, "endlessSaveFile"); // Endless mode save file
+    public static string mainFilePath = Path.Combine(Application.persistentDataPath, "mainSaveFile.txt");       // Main game save file
+    public static string endlessFilePath = Path.Combine(Application.persistentDataPath, "endlessSaveFile.txt"); // Endless mode save file
 
-    public static void SaveGame(PlayerSaveData data, bool endlessMode)
+ 
+    public static void SaveMainGame(int nightNum)
     {
-        string json;
-
-        if (!endlessMode)   // Save the night number if saving the main game
+        if (nightNum > 0)
         {
-            if (data.nightNum > 0) // Make sure the night number is greater than 0
-            {
-                json = JsonUtility.ToJson(data.nightNum, true);
-                File.WriteAllText(mainFilePath, json);
-                Debug.Log($"Game saved to {mainFilePath}");
-            }
-            else
-            {
-                Debug.LogError("Invalid night number");
-            }
-        }
-        else if (endlessMode)   // Save the endless mode high score if saving in endless mode
-        {
-            if (data.endlessTime != float.NaN)
-            {
-                json = JsonUtility.ToJson(data.endlessTime, true);
-                File.WriteAllText(endlessFilePath, json);
-                Debug.Log($"Game saved to {endlessFilePath}");
-            }
-            else
-            {
-                Debug.LogError("Invalid endless mode score");
-            }
+            File.WriteAllText(mainFilePath, nightNum.ToString());
+            Debug.Log($"Game saved to {mainFilePath}");
         }
         else
         {
-            Debug.LogError("Failed to save game data, invalid game state");
+            Debug.LogError("Invalid night number");
         }
     }
 
-    public static PlayerSaveData LoadGame(bool endlessMode)
+    public static void SaveEndlessHiScore(float endlessScore)
     {
-        string json;
-        PlayerSaveData data;
-
-        if (!endlessMode)
+        if (endlessScore != float.NaN)
         {
-            if (!File.Exists(mainFilePath))
-            {
-                Debug.LogWarning("Main save file not found");
-                return null;
-            }
-            json = File.ReadAllText(mainFilePath);
-            data = JsonUtility.FromJson<PlayerSaveData>(json);
-            return data;
-        }
-        else if (endlessMode)
-        {
-            if (!File.Exists(endlessFilePath))
-            {
-                Debug.LogWarning("Endless mode save file not found");
-                return null;
-            }
-            json = File.ReadAllText(endlessFilePath);
-            data = JsonUtility.FromJson<PlayerSaveData>(json);
-            return data;
+            File.WriteAllText(endlessFilePath, endlessScore.ToString());
+            Debug.Log($"Game saved to {endlessFilePath}");
         }
         else
         {
-            Debug.LogWarning("Failed to load game data, invalid game state");
-            return null;
+            Debug.LogError("Invalid endless mode score");
         }
+    }
+
+    public static int LoadMainGame()
+    {
+        if (!File.Exists(mainFilePath))
+        {
+            Debug.LogWarning("Main save file not found");
+            return 0;
+        }
+        int.TryParse(File.ReadAllText(mainFilePath), out int result);
+        return result;
+    }
+
+    public static float LoadEndlessHiScore()
+    {
+        if (!File.Exists(endlessFilePath))
+        {
+            Debug.LogWarning("Endless mode save file not found");
+            return float.NaN;
+        }
+        float.TryParse(File.ReadAllText(endlessFilePath), out float result);
+        return result;
     }
 }
