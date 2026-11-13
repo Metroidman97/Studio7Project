@@ -12,11 +12,18 @@ public class NightTimer : MonoBehaviour
 
     private GameManager gameManager;
 
+    public GameObject endNightButton;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         nightTimer.value = 0f;
+
+        if (!gameManager.debugMode)
+        {
+            HideNightButton();
+        }
     }
 
     // Update is called once per frame
@@ -37,5 +44,16 @@ public class NightTimer : MonoBehaviour
     public void EndNight()
     {
         nightTimer.value = nightTimer.maxValue;
+    }
+
+    public void ActivateEndlessMode()
+    {
+        nightTimer.gameObject.SetActive(false);
+        nightTimeSpeed = 0;
+    }
+
+    private void HideNightButton()
+    {
+        endNightButton.SetActive(false);
     }
 }

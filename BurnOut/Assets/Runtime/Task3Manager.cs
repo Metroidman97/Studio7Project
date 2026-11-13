@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,12 @@ public class Task3Manager : MonoBehaviour, ITask
 
     // Candle meter object
     public Candle candle;
+
+    //Public Facing audio
+    public AudioClip FaucetSqueak;
+    public AudioClip WaterFaucet;
+    public AudioClip WaterWindUp;
+    public AudioSource keyTaskAudio;
 
     // Game Manager script. Not needed now, but will save it for later
     //private GameManager gameManager;
@@ -60,11 +67,16 @@ public class Task3Manager : MonoBehaviour, ITask
     {
         valve.layer = LayerMask.NameToLayer("Default");
         StartCoroutine(FillWater());
+
+        keyTaskAudio.pitch = 0.82f;
+        keyTaskAudio.PlayOneShot(WaterWindUp); //SAVANNA: Play the water wind up sound effect when the thingy is spinned counterclockwise
+       
     }
 
     public void FinishTask()
     {
         releaseButton.SetActive(false);
+        StartCoroutine(PourWaterSound());
         candle.PutOutOfDanger();
     }
 
@@ -73,5 +85,26 @@ public class Task3Manager : MonoBehaviour, ITask
         float waitTime = 3f;
         yield return new WaitForSeconds(waitTime);
         releaseButton.SetActive(true);
+
+        /*
+        keyTaskAudio.pitch = 0.82f;
+        keyTaskAudio.PlayOneShot(FaucetSqueak); //SAVANNA: Play the faucet squeak before water faucet
+        */
+
+        
+    }
+
+    private IEnumerator PourWaterSound()
+    {
+        keyTaskAudio.Stop();
+        keyTaskAudio.pitch = 0.82f;
+        keyTaskAudio.PlayOneShot(WaterFaucet); //SAVANNA: Play the water running sound effect when the task is completed
+        yield return new WaitForSeconds(3f);
+        keyTaskAudio.Stop();
+    }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        // Empty function for interface compatibility
     }
 }

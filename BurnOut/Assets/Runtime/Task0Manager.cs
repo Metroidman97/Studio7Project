@@ -14,6 +14,7 @@ public class Task0Manager : MonoBehaviour, ITask
     public TextMeshProUGUI ingredientList;
     public GameObject taskUI;
 
+
     // Public Audio
     public AudioSource keyTaskAudio;
     public AudioClip successfulBrew;
@@ -21,6 +22,11 @@ public class Task0Manager : MonoBehaviour, ITask
 
     // Candle meter object
     public Candle candle;
+
+    //PotionColor
+    public GameObject caldronTop;
+    private SpriteRenderer caldronTopSprite;
+    public Sprite[] caldronOptions;
 
     // Array of ingredient objects currently in the scene
     [SerializeField]
@@ -41,15 +47,17 @@ public class Task0Manager : MonoBehaviour, ITask
     // Number of correct ingredients in the cauldron
     private int correctIngredients = 0;
 
-    private void Awake()
+    private void Start()
     {
+        caldronTopSprite = caldronTop.GetComponent<SpriteRenderer>();
         // Clear the needed ingredients list
         neededIngredients.Clear();
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();   // Get the game manager script
         diffRating = (int)gameManager.difficulty;                                   // Get the index value of the difficulty setting
-        recipeLibrary = new RecipeLibrary(diffRating);                              // Get the recipe library script
-        
+        recipeLibrary = GetRecipeLibrary(diffRating);                               // Get the recipe library script
+        UpdateCaldronTop(); //JACOB
+
         // Set the mix and finish buttons as inactive
         mixButton.SetActive(false);
         finishButton.SetActive(false);
@@ -60,6 +68,8 @@ public class Task0Manager : MonoBehaviour, ITask
             ingredients[i].layer = LayerMask.NameToLayer("Default");
         }
     }
+
+    
 
     public void ResetTask()
     {
@@ -119,6 +129,8 @@ public class Task0Manager : MonoBehaviour, ITask
 
         // Update the list text as shown in game
         UpdateListText();
+        UpdateCaldronTop();
+
     }
 
     private void UpdateListText()
@@ -180,5 +192,23 @@ public class Task0Manager : MonoBehaviour, ITask
         {
             ingredients[i].layer = LayerMask.NameToLayer("Draggable");
         }
+    }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        diffRating = difficultyId;
+        recipeLibrary = GetRecipeLibrary(difficultyId);     // Get a new recipe library object with the new difficulty 
+    }
+
+    private RecipeLibrary GetRecipeLibrary(int difficultyId)
+    {
+        return new RecipeLibrary(difficultyId);
+    }
+
+    //JACOB
+    private void UpdateCaldronTop() 
+    {
+        print("caldron Top Called");
+        caldronTopSprite.sprite = caldronOptions[recipeLibrary.currentPotionID];
     }
 }

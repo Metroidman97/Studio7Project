@@ -7,4 +7,5 @@ public interface ITask
     public void StartTask();
     public void SwitchToTask();
     public void SwitchFromTask();
+    public void ChangeDifficulty(int difficultyId);
 }

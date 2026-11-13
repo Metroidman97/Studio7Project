@@ -91,4 +91,9 @@ public class Task1Manager : MonoBehaviour, ITask
         keyTaskAudio.PlayOneShot(sigilSucess); //JACOB: Plays 'sigil sucess' upon task being completed properly
         candle.PutOutOfDanger();
     }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        diffRating = difficultyId;
+    }
 }

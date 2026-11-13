@@ -5,6 +5,7 @@ using UnityEngine;
 public class RecipeLibrary
 {
     private int diffRating;
+    public int currentPotionID = 0;
 
     //private string[] ingredients = new string[] {"Rosemary", "Jar Of Blood", "Salt", "Rose Petals", "Bay Leaves", "Crystals", "Cinnamon Stick", "Lavender" };
 
@@ -41,17 +42,22 @@ public class RecipeLibrary
 
     public string[] GetRecipe()
     {
+        currentPotionID = 0;
         int index;
         switch(diffRating)
         {
             case 0:
                 index = Random.Range(0, easyPotions.Length);
+                currentPotionID = index;
                 return easyPotions[index];
+
             case 1:
                 index = Random.Range(0, mediumPotions.Length);
+                currentPotionID = index + 4;
                 return mediumPotions[index];
             case 2:
                 index = Random.Range(0, hardPotions.Length);
+                currentPotionID = index + 10;
                 return hardPotions[index];
             default:
                 return null;

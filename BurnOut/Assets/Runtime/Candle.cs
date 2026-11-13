@@ -88,5 +88,14 @@ public class Candle : MonoBehaviour
     {
         inDanger = false;
         dangerAlarm.SetActive(false);
+        if (gameManager.endlessMode)
+        {
+            gameManager.IncrementTaskNumber();
+        }
+    }
+
+    public void ChangeTaskDifficulty(int difficultyId)
+    {
+        task.ChangeDifficulty(difficultyId);
     }
 }

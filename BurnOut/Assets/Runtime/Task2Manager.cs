@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UIElements;
 
 public class Task2Manager : MonoBehaviour, ITask
 {
@@ -12,6 +13,12 @@ public class Task2Manager : MonoBehaviour, ITask
 
     // Candle meter
     public Candle candle;
+
+    //Public Facing audio
+    public AudioClip BonePickUp;
+    public AudioClip BonePlace;
+    public AudioClip CorrectOrder;
+    public AudioSource keyTaskAudio;
 
     [SerializeField]
     private GameObject[] bones;                             // Array of bone objects
@@ -29,6 +36,9 @@ public class Task2Manager : MonoBehaviour, ITask
 
     private Vector2[] pannelBonePositions = new Vector2[4]; // Array of position vectors for the pannel bones
 
+    private bool newCorrectBone = false;
+    private int currentBoneCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +51,7 @@ public class Task2Manager : MonoBehaviour, ITask
     {
         
     }
+
     public void StartTask()
     {
         // Make the bones draggable
@@ -97,13 +108,15 @@ public class Task2Manager : MonoBehaviour, ITask
 
     private void RandomizePannelBones()
     {
-        // Make the pannel bones visible and shuffle their positions
+        // Make the pannel bones visible and shuffle their positions and reduce the correct bone # to 0
         pannelBonePositions.Shuffle();
         for (int i = 0; i < pannelBones.Length; i++)
         {
             pannelBones[i].SetActive(true);
             pannelBones[i].transform.position = pannelBonePositions[i];
         }
+        //JACOB
+        currentBoneCount = 0;
     }
 
     public void CheckBones()
@@ -115,15 +128,55 @@ public class Task2Manager : MonoBehaviour, ITask
             Vector2 bonePos = new Vector2((float)Math.Round(bones[i].transform.localPosition.x, 2), (float)Math.Round(bones[i].transform.localPosition.y, 2));
             Vector2 pannelBonePos = new Vector2((float)Math.Round(pannelBones[i].transform.localPosition.x, 2), (float)Math.Round(pannelBones[i].transform.localPosition.y, 2));
 
+            print("This is the bone pos: " + bonePos);
+            print("This is the panel pos: " + pannelBonePos);
+
+
             if (bonePos == pannelBonePos)
             {
-                correctBones++;
+                print("BONE IN RIGHT SPOT");
+               correctBones++;
+            } 
+
+        }
+        //The purpose of this script is to return true if the previous
+
+       //print(correctBones);
+
+
+       if (correctBones > currentBoneCount) 
+       {
+            currentBoneCount = correctBones;
+            newCorrectBone = true;
+       }
+        else if (correctBones <= currentBoneCount)
+        {
+            newCorrectBone = false;
+            if (correctBones < currentBoneCount) 
+            {
+                currentBoneCount--;
             }
         }
 
         if (correctBones == 4)
         {
             finishButton.SetActive(true);
+            //keyTaskAudio.pitch = 0.82f;
+            keyTaskAudio.PlayOneShot(CorrectOrder); //SAVANNA: Play the correct order sound effect when the bones are in the correct order
         }
+        //keyTaskAudio.pitch = 0.82f;
+        keyTaskAudio.PlayOneShot(BonePlace); //SAVANNA: Play the bone place sound effect when the bones are put down
+    }
+
+    public bool NewCorrectBone()
+    {
+        bool temp = newCorrectBone;
+        newCorrectBone = false;
+        return temp;
+    }
+
+    public void ChangeDifficulty(int difficultyId)
+    {
+        // Empty function for interface compatibility
     }
 }
