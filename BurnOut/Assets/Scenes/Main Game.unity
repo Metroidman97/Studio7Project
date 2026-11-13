@@ -1766,7 +1766,9 @@ MonoBehaviour:
   - {fileID: 1826448341}
   - {fileID: 969120685}
   endlessMode: 0
+  newGame: 0
   endlessTimer: 0
+  endlessHighScore: 0
 --- !u!4 &159862304
 Transform:
   m_ObjectHideFlags: 0
