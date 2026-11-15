@@ -8,6 +8,7 @@ public class Task3Manager : MonoBehaviour, ITask
     // Public UI elements
     public GameObject releaseButton;
     public GameObject taskUI;
+    public GameObject[] VFXplayers;
 
     // Valve object
     public GameObject valve;
@@ -46,6 +47,14 @@ public class Task3Manager : MonoBehaviour, ITask
     void Update()
     {
         
+    }
+
+    public void PlayVFX() 
+    {
+        for (int i = 0; i < VFXplayers.Length; i++)
+        {
+            VFXplayers[i].GetComponent<SimpleVFXplayer>().PlayAnimations();
+        }
     }
     public void StartTask()
     {
@@ -96,6 +105,7 @@ public class Task3Manager : MonoBehaviour, ITask
 
     private IEnumerator PourWaterSound()
     {
+        PlayVFX();
         keyTaskAudio.Stop();
         keyTaskAudio.pitch = 0.82f;
         keyTaskAudio.PlayOneShot(WaterFaucet); //SAVANNA: Play the water running sound effect when the task is completed

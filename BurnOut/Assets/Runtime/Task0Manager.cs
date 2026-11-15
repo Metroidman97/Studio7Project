@@ -25,6 +25,7 @@ public class Task0Manager : MonoBehaviour, ITask
 
     //PotionColor
     public GameObject caldronTop;
+    public GameObject splashEffect;
     private SpriteRenderer caldronTopSprite;
     public Sprite[] caldronOptions;
 
@@ -103,6 +104,7 @@ public class Task0Manager : MonoBehaviour, ITask
         if (matchFound)     // If a match is found, increment the correct ingredients counter
         {
             correctIngredients++;
+            splashEffect.GetComponent<SimpleVFXplayer>().PlayAnimations();
         }
         else                // If no match is found, return the ingredient to the cauldron
         {
