@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Bone : MonoBehaviour
 {
+    public GameObject DustPlayer;
     public int ID;
     [SerializeField]
     Animator animator;
@@ -68,6 +69,8 @@ public class Bone : MonoBehaviour
     private void PlayAnimations(bool correct)
         //bool correct
     {
+        DustPlayer.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y +0.75f, transform.position.z -0.5f);
+        DustPlayer.GetComponent<SimpleVFXplayer>().PlayAnimations();
         sprites.enabled = true;
         animator.enabled = true;
         //animator.Play("bonesFail", 0, 0f);
