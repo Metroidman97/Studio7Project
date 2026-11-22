@@ -9,6 +9,7 @@ public class TouchRotation : MonoBehaviour
     // Input action assets
     private PlayerInput playerInput;
     private InputAction touchRotate;
+    private InputAction touchDrag;
 
     // Values for rotation movement
     [SerializeField]
@@ -25,11 +26,13 @@ public class TouchRotation : MonoBehaviour
         mainCamera = Camera.main;
         playerInput = GetComponent<PlayerInput>();
         touchRotate = playerInput.actions.FindAction("TouchPress");
+        touchDrag = playerInput.actions.FindAction("TouchPosition");
     }
 
     private void OnEnable()
     {
         touchRotate.Enable();
+        touchDrag.Enable();
         touchRotate.performed += TouchPressed;
     }
 
@@ -37,12 +40,14 @@ public class TouchRotation : MonoBehaviour
     {
         touchRotate.performed -= TouchPressed;
         touchRotate.Disable();
+        touchDrag.Disable();
     }
 
     private void TouchPressed(InputAction.CallbackContext context)
     {
         //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        //Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray ray = mainCamera.ScreenPointToRay(touchDrag.ReadValue<Vector2>());
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
 
         // If the ray hits something on the rotatable layer, run the code
@@ -55,12 +60,14 @@ public class TouchRotation : MonoBehaviour
     private IEnumerator RotateUpdate(GameObject clickedObject)
     {
         // While the player is touching the screen
-        while (touchRotate.ReadValue<float>() != 0)
+        while (touchRotate.ReadValue<float>() != 0 && clickedObject.gameObject.layer == LayerMask.NameToLayer("Rotatable"))
         {
             //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            //Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray ray = mainCamera.ScreenPointToRay(touchDrag.ReadValue<Vector2>());
             //Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Touchscreen.current.primaryTouch.position.ReadValue().x, Touchscreen.current.primaryTouch.position.ReadValue().y, Mathf.Abs(mainCamera.transform.position.z)));
-            Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, Mathf.Abs(mainCamera.transform.position.z)));
+            //Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, Mathf.Abs(mainCamera.transform.position.z)));
+            Vector3 worldTouchPosition = mainCamera.ScreenToWorldPoint(new Vector3(touchDrag.ReadValue<Vector2>().x, touchDrag.ReadValue<Vector2>().y, Mathf.Abs(mainCamera.transform.position.z)));
             worldTouchPosition.z = 0f;
 
             Vector2 direction = (worldTouchPosition - clickedObject.transform.position).normalized;

@@ -14,6 +14,9 @@ public class Ingredient : MonoBehaviour
     // Starting position of the ingredient in the scene
     private Vector2 startPosition;
 
+    // Sprite renderer component
+    private SpriteRenderer spriteRenderer;
+
     //JACOB
     private PolygonCollider2D collisionOn2DPlane;
 
@@ -22,6 +25,7 @@ public class Ingredient : MonoBehaviour
         taskManager = GameObject.Find("Task0").GetComponent<Task0Manager>();    // Get the taskmanager script
         startPosition = transform.position;                                     // Record the starting position
         gameObject.layer = LayerMask.NameToLayer("Default");                    // Set the layer to default so they can't be dragged
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();             // Get the sprite renderer component
         
         //JACOB START
         collisionOn2DPlane = gameObject.GetComponent<PolygonCollider2D>();
@@ -35,6 +39,7 @@ public class Ingredient : MonoBehaviour
             isInCauldron = true;
             taskManager.CheckIngredient(gameObject);
             gameObject.layer = LayerMask.NameToLayer("Default");    // Set the layer to defualt so the item can't be pulled out of the cauldron
+            spriteRenderer.enabled = false;     // Make the sprite invisible when the object enters the cauldron
         }
     }
 
@@ -44,6 +49,7 @@ public class Ingredient : MonoBehaviour
         {
             isInCauldron = false;
             //gameObject.layer = LayerMask.NameToLayer("Draggable");  // Set the object back to draggable
+            spriteRenderer.enabled = true;      // Make the object visible when it leaves the cauldron
         }
     }
 
@@ -71,7 +77,7 @@ public class Ingredient : MonoBehaviour
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Nothing");
         collisionOn2DPlane.excludeLayers = LayerMask.GetMask("Draggable");
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2f);
-        print("Revert Back Called");
+        //print("Revert Back Called");
     }
     //JACOB END
 }

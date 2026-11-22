@@ -39,7 +39,7 @@ public class SimpleVFXplayer : MonoBehaviour
         animator.enabled = true;
         //animator.Play("bonesFail", 0, 0f);
 
-        print(AnimationName);
+        //print(AnimationName);
 
         animator.Play(AnimationName, 0, 0f);
 

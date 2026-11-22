@@ -133,13 +133,13 @@ public class Task2Manager : MonoBehaviour, ITask
             Vector2 bonePos = new Vector2((float)Math.Round(bones[i].transform.localPosition.x, 2), (float)Math.Round(bones[i].transform.localPosition.y, 2));
             Vector2 pannelBonePos = new Vector2((float)Math.Round(pannelBones[i].transform.localPosition.x, 2), (float)Math.Round(pannelBones[i].transform.localPosition.y, 2));
 
-            print("This is the bone pos: " + bonePos);
-            print("This is the panel pos: " + pannelBonePos);
+            //print("This is the bone pos: " + bonePos);
+            //print("This is the panel pos: " + pannelBonePos);
 
 
             if (bonePos == pannelBonePos)
             {
-                print("BONE IN RIGHT SPOT");
+                //print("BONE IN RIGHT SPOT");
                correctBones++;
             } 
 
