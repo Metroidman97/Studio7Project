@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour
         {
             nightCounter = 1;
         }
+        
+
 
         if (endlessMode)
         {
@@ -220,11 +222,11 @@ public class GameManager : MonoBehaviour
         switch(difficulty)
         {
             case Difficulty.Easy:
-                return 20f;
+                return 12f;
             case Difficulty.Medium:
-                return 15f;
+                return 9.5f;
             case Difficulty.Hard:
-                return 10f;
+                return 6f;
             default:
                 return 30f;
         }
