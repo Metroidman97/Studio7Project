@@ -1470,7 +1470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1296441835096056640, guid: 7f4299e0445c3794ab38dba326633155, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 1296441835096056640, guid: 7f4299e0445c3794ab38dba326633155, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2168,7 +2168,7 @@ MonoBehaviour:
   burnSpeedMultiplier: 1
   restoreSpeedModifier: 1
   nightTimerModifier: 1
-  debugMode: 1
+  debugMode: 0
   candleMeters:
   - {fileID: 1403959457}
   - {fileID: 1491795074}
