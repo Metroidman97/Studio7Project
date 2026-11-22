@@ -9,6 +9,7 @@ public class DragAndDrop : MonoBehaviour
     // Input action assets
     private PlayerInput playerInput;
     private InputAction touchDrag;
+    private InputAction touchPress;
 
     // Values for object moving physics (make the object trail behind when dragging)
     [SerializeField]
@@ -26,28 +27,33 @@ public class DragAndDrop : MonoBehaviour
         // Get the camera and input actions
         mainCamera = Camera.main;
         playerInput = GetComponent<PlayerInput>();
-        touchDrag = playerInput.actions.FindAction("TouchPress");
+        touchDrag = playerInput.actions.FindAction("TouchPosition");
+        touchPress = playerInput.actions.FindAction("TouchPress");
     }
 
     private void OnEnable()
     {
+        touchPress.Enable();
         touchDrag.Enable();
-        touchDrag.performed += MousePressed;
-        touchDrag.canceled += MouseReleased;
+        touchPress.performed += MousePressed;
+        touchPress.canceled += MouseReleased;
         
     }
 
     private void OnDisable()
     {
-        touchDrag.performed -= MousePressed;
-        touchDrag.canceled -= MouseReleased;
+        touchPress.performed -= MousePressed;
+        touchPress.canceled -= MouseReleased;
         touchDrag.Disable();
+        touchPress.Disable();
     }
 
     private void MousePressed(InputAction.CallbackContext context)
     {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());                      // Same as below but for mouse input, figure out a way to make this work for both simultaneously
+        //Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());                      // Same as below but for mouse input, figure out a way to make this work for both simultaneously
         //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        Ray ray = mainCamera.ScreenPointToRay(touchDrag.ReadValue<Vector2>());
+        //Debug.Log(ray);
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
 
         // If the ray hits something on the draggable layer, run the code
@@ -58,7 +64,7 @@ public class DragAndDrop : MonoBehaviour
             //JACOB START: Checks if collider's gameobject contains "Ingrient". If yes, calls the ingredient forward.
             if(hit.collider.gameObject.TryGetComponent(out Ingredient ingredient))
             {
-                print("Found ingreident script");
+                //print("Found ingreident script");
                 ingredient.BringForward();
             }
             //JACOB END
@@ -71,10 +77,11 @@ public class DragAndDrop : MonoBehaviour
         clickedObject.TryGetComponent<Rigidbody2D>(out var rb);                                                     // Get the objects rigidbody, if it has one
 
         // While the player is touching the screen
-        while (touchDrag.ReadValue<float>() != 0)
+        while (touchPress.ReadValue<float>() != 0 && clickedObject.gameObject.layer == LayerMask.NameToLayer("Draggable"))
         {
             //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create another ray where the player touches the screen
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            //Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray ray = mainCamera.ScreenPointToRay(touchDrag.ReadValue<Vector2>());
             if (rb != null)     // If the object has a rigidbody
             {
                 // Move the object by changing its velocity
@@ -93,8 +100,9 @@ public class DragAndDrop : MonoBehaviour
 
     private void MouseReleased(InputAction.CallbackContext context)
     {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());                      // Same as below but for mouse input, figure out a way to make this work for both simultaneously
+        //Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());                      // Same as below but for mouse input, figure out a way to make this work for both simultaneously
         //Ray ray = mainCamera.ScreenPointToRay(Touchscreen.current.primaryTouch.position.ReadValue());   // Create a ray where the player touches the screen
+        Ray ray = mainCamera.ScreenPointToRay(touchDrag.ReadValue<Vector2>());
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);                                           // Detect what the ray hits
 
         if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Draggable"))

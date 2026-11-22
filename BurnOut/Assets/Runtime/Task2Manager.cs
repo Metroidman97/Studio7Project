@@ -32,6 +32,9 @@ public class Task2Manager : MonoBehaviour, ITask
     [SerializeField]
     private Transform[] pannelBonePositionsTransforms;      // The positions for the pannel bones
 
+    [SerializeField] 
+    private Transform[] boneCrateTransforms;                // The positions for bones in the crate
+
     private Vector2[] bonePositions = new Vector2[4];       // Array of position vectors for the bones
 
     private Vector2[] pannelBonePositions = new Vector2[4]; // Array of position vectors for the pannel bones
@@ -42,7 +45,7 @@ public class Task2Manager : MonoBehaviour, ITask
     // Start is called before the first frame update
     void Start()
     {
-        finishButton.SetActive(false);
+        //finishButton.SetActive(false);
         SetBonePositions();
     }
 
@@ -54,10 +57,12 @@ public class Task2Manager : MonoBehaviour, ITask
 
     public void StartTask()
     {
-        // Make the bones draggable
+        // Make the bones draggable and have them start in the crate
         for (int i = 0; i < bones.Length; i++)
         {
             bones[i].gameObject.layer = LayerMask.NameToLayer("Draggable");
+            bonePositions[i] = boneCrateTransforms[i].position;
+            bones[i].transform.position = bonePositions[i];
         }
 
         RandomizePannelBones();
@@ -75,7 +80,7 @@ public class Task2Manager : MonoBehaviour, ITask
 
     public void FinishTask()
     {
-        finishButton.SetActive(false);
+        //finishButton.SetActive(false);
         candle.PutOutOfDanger();
 
         for (int i = 0; i < bones.Length; i++)
@@ -94,7 +99,7 @@ public class Task2Manager : MonoBehaviour, ITask
         // Set the starting positions for each bone, and set the pannel bones to invisible
         for (int i = 0; i < bonePositionTransforms.Length; i++)
         {
-            bonePositions[i] = bonePositionTransforms[i].position;
+            bonePositions[i] = boneCrateTransforms[i].position;
             bones[i].transform.position = bonePositions[i];
         }
 
@@ -128,13 +133,13 @@ public class Task2Manager : MonoBehaviour, ITask
             Vector2 bonePos = new Vector2((float)Math.Round(bones[i].transform.localPosition.x, 2), (float)Math.Round(bones[i].transform.localPosition.y, 2));
             Vector2 pannelBonePos = new Vector2((float)Math.Round(pannelBones[i].transform.localPosition.x, 2), (float)Math.Round(pannelBones[i].transform.localPosition.y, 2));
 
-            print("This is the bone pos: " + bonePos);
-            print("This is the panel pos: " + pannelBonePos);
+            //print("This is the bone pos: " + bonePos);
+            //print("This is the panel pos: " + pannelBonePos);
 
 
             if (bonePos == pannelBonePos)
             {
-                print("BONE IN RIGHT SPOT");
+                //print("BONE IN RIGHT SPOT");
                correctBones++;
             } 
 
@@ -160,7 +165,9 @@ public class Task2Manager : MonoBehaviour, ITask
 
         if (correctBones == 4)
         {
-            finishButton.SetActive(true);
+            //finishButton.SetActive(true);
+            // Finish the task automatically when all the bones are in place
+            FinishTask();
             //keyTaskAudio.pitch = 0.82f;
             keyTaskAudio.PlayOneShot(CorrectOrder); //SAVANNA: Play the correct order sound effect when the bones are in the correct order
         }

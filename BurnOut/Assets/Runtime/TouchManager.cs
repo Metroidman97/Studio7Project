@@ -43,7 +43,7 @@ public class TouchManager : MonoBehaviour
 
         if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("TapTarget"))
         {
-            hit.collider.gameObject.TryGetComponent(out SigilPoint point);
+            hit.collider.gameObject.TryGetComponent(out ITouchPoint point);
             if (point != null)
             {
                 point.PointTapped();

@@ -75,7 +75,7 @@ public class Bone : MonoBehaviour
         animator.enabled = true;
         //animator.Play("bonesFail", 0, 0f);
 
-        print(correct);
+        //print(correct);
         if (correct) { animator.Play("bonesSucess", -1, 0f); }
         else { animator.Play("bonesFail", -1, 0f); }
 

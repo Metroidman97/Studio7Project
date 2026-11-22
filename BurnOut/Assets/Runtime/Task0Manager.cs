@@ -114,7 +114,8 @@ public class Task0Manager : MonoBehaviour, ITask
 
         if (correctIngredients == (diffRating + 2))   // Once all ingredients are added, make the mix button visible
         {
-            mixButton.SetActive(true);
+            //mixButton.SetActive(true);
+            MixPotion();
         }
     }
 
@@ -161,11 +162,13 @@ public class Task0Manager : MonoBehaviour, ITask
 
     public void MixPotion()
     {
-       StartCoroutine(PotionMixWait());
-       mixButton.SetActive(false);
-       keyTaskAudio.PlayOneShot(successfulBrew); //JACOB: plays "PototionSucessSound" once potion mixing begins
+       //StartCoroutine(PotionMixWait());
+       //mixButton.SetActive(false);
+        keyTaskAudio.PlayOneShot(successfulBrew); //JACOB: plays "PototionSucessSound" once potion mixing begins
+        FinishTask();
     }
 
+    /*
     private IEnumerator PotionMixWait()
     {
         // Wait a few seconds for the potion to finish mixing (should be made longer)
@@ -173,7 +176,7 @@ public class Task0Manager : MonoBehaviour, ITask
         yield return new WaitForSeconds(waitTime);
         finishButton.SetActive(true);
     }
-
+    */
     public void FinishTask()
     {
         // Put the candle out of danger
@@ -210,7 +213,7 @@ public class Task0Manager : MonoBehaviour, ITask
     //JACOB
     private void UpdateCaldronTop() 
     {
-        print("caldron Top Called");
+        //print("caldron Top Called");
         caldronTopSprite.sprite = caldronOptions[recipeLibrary.currentPotionID];
     }
 }
