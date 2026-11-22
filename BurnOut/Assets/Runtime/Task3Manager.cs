@@ -22,8 +22,14 @@ public class Task3Manager : MonoBehaviour, ITask
     public AudioClip WaterWindUp;
     public AudioSource keyTaskAudio;
 
+    // The 3 small valves
+    public GameObject[] smallValves;
+
     // Game Manager script. Not needed now, but will save it for later
     //private GameManager gameManager;
+
+    // Number of small valve turns
+    private int valveTurns = 0;
 
     private void Awake()
     {
@@ -31,11 +37,17 @@ public class Task3Manager : MonoBehaviour, ITask
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // Set the release button to inactive
-        releaseButton.SetActive(false);
+        //releaseButton.SetActive(false);
 
         // Reset the valve's rotation and make it non-interactable
         valve.transform.rotation = Quaternion.identity;
         valve.layer = LayerMask.NameToLayer("Default");
+
+        // Make the small valves non-interactable
+        for (int i = 0; i < smallValves.Length; i++)
+        {
+            smallValves[i].layer = LayerMask.NameToLayer("Default");
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -60,6 +72,9 @@ public class Task3Manager : MonoBehaviour, ITask
     {
         valve.layer = LayerMask.NameToLayer("Rotatable");
         valve.GetComponent<ValveRotation>().ResetRotations();
+
+        // Reset the valve turns to 0
+        valveTurns = 0;
     }
 
     public void SwitchToTask()
@@ -75,16 +90,29 @@ public class Task3Manager : MonoBehaviour, ITask
     public void StartWater()
     {
         valve.layer = LayerMask.NameToLayer("Default");
-        StartCoroutine(FillWater());
+        for (int i = 0; i < smallValves.Length; i++)
+        {
+            smallValves[i].layer = LayerMask.NameToLayer("TapTarget");
+        }
+        //StartCoroutine(FillWater());
 
         keyTaskAudio.pitch = 0.82f;
         keyTaskAudio.PlayOneShot(WaterWindUp); //SAVANNA: Play the water wind up sound effect when the thingy is spinned counterclockwise
        
     }
 
+    public void SmallValveTurn()
+    {
+        valveTurns++;
+        if (valveTurns == smallValves.Length)
+        {
+            FinishTask();
+        }
+    }
+
     public void FinishTask()
     {
-        releaseButton.SetActive(false);
+        //releaseButton.SetActive(false);
         StartCoroutine(PourWaterSound());
         candle.PutOutOfDanger();
     }
@@ -93,7 +121,7 @@ public class Task3Manager : MonoBehaviour, ITask
     {
         float waitTime = 3f;
         yield return new WaitForSeconds(waitTime);
-        releaseButton.SetActive(true);
+        //releaseButton.SetActive(true);
 
         /*
         keyTaskAudio.pitch = 0.82f;

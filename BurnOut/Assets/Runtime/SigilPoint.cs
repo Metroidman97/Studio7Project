@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SigilPoint : MonoBehaviour
+public class SigilPoint : MonoBehaviour, ITouchPoint
 {
     // ID number for the point, to determine the order they are pressed
     public int id = 0;
